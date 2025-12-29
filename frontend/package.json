@@ -24,7 +24,6 @@
   "packageManager": "npm@11.7.0",
   "dependencies": {
     "@angular/common": "^21.0.0",
-    "@angular/compiler": "^21.0.0",
     "@angular/core": "^21.0.0",
     "@angular/forms": "^21.0.0",
     "@angular/platform-browser": "^21.0.0",
@@ -35,12 +34,15 @@
   "devDependencies": {
     "@angular/build": "^21.0.4",
     "@angular/cli": "^21.0.4",
+    "@angular/compiler": "^21.0.6",
     "@angular/compiler-cli": "^21.0.0",
     "@tailwindcss/postcss": "^4.1.12",
-    "jsdom": "^27.1.0",
+    "@vitest/browser-playwright": "^4.0.16",
+    "@vitest/ui": "^4.0.16",
+    "jsdom": "^27.4.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.12",
     "typescript": "~5.9.2",
-    "vitest": "^4.0.8"
+    "vitest": "^4.0.16"
   }
 }
