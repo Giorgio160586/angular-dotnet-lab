@@ -1,0 +1,71 @@
+
+# ---- Global ----
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# ---- Node / Angular ----
+node_modules/
+dist/
+.tmp/
+coverage/
+.angular/
+
+# Angular build artifacts
+frontend/frontend-lab/dist/
+frontend/frontend-lab/.angular/
+
+# Environment files (if sensitive)
+*.env
+.env.*
+
+# ---- .NET / C# ----
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio cache/options
+.vscode/
+.vs/
+
+# NuGet packages
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+# except build/, which is used as an MSBuild target.
+!**/packages/build/
+
+# Azure build output
+csx/
+*.build.csdef
+
+# Windows image file caches
+Thumbs.db
+
+# IIS logs
+IISExpress/
+
+# Dotnet tools
+.dotnet-tools/
+
+# ---- Others ----
+# Logs
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+
+# ---- End ----
