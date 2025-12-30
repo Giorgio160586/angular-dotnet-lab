@@ -1,4 +1,3 @@
-
 import { ErrorHandler, Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -6,14 +5,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class GlobalErrorHandlerService implements ErrorHandler {
   handleError(error: unknown): void {
     // HTTP error
-    if (error instanceof HttpErrorResponse) {
-      console.error('HTTP error:', error);
-      return; // avoid falling through
-    }
+    if (error instanceof HttpErrorResponse) return;
 
     // Application/runtime error
     if (error instanceof Error) {
-      console.error('Application error:', error);
+      console.error('Application error:', error.message);
       return;
     }
 
@@ -21,14 +17,3 @@ export class GlobalErrorHandlerService implements ErrorHandler {
     console.error('Unknown error:', error);
   }
 }
-
-
-/*
-
-https://www.youtube.com/watch?v=oMzVtCKsLRc&t=4s
-
-npx playwright install
-ng test
-
-
-*/

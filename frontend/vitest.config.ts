@@ -6,7 +6,8 @@ export default defineConfig({
     globals: false,
     browser: {
       provider: playwright(),
-        headless: false
+      headless: false,
+      enabled: true
     }
   },
 });
