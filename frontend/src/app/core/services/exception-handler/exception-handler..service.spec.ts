@@ -1,14 +1,10 @@
 import { describe, expect, it, vi } from 'vitest';
-import { GlobalErrorHandlerService } from './global-error-handler.service';
+import { ExceptionHandlerService } from './exception-handler.service';
 
-/*
-  https://www.youtube.com/watch?v=oMzVtCKsLRc&t=4s
-  ng test
-*/
-describe('GlobalErrorHandlerService', () => {
+describe('ExceptionHandlerService', () => {
   it('logs an application error for non-HTTP exceptions"', () => {
 
-    const service = new GlobalErrorHandlerService();
+    const service = new ExceptionHandlerService();
     const appError = new Error('Something went wrong');
 
     const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => { });

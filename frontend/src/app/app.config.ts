@@ -2,12 +2,19 @@ import { ApplicationConfig, ErrorHandler, provideBrowserGlobalErrorListeners } f
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { GlobalErrorHandlerService } from './core/services/global-error-handler.service';
+import { ExceptionHandlerService } from './core/services/exception-handler/exception-handler.service';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { HttpErrorInterceptor } from './core/services/http-interceptor/httpErrorInterceptor.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    { provide: ErrorHandler, useClass: GlobalErrorHandlerService }
+    { provide: ErrorHandler, useClass: ExceptionHandlerService },
+    provideHttpClient(
+      withInterceptors([
+        HttpErrorInterceptor
+      ])
+    )
   ]
 };

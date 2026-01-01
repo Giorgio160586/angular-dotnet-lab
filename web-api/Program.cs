@@ -9,6 +9,11 @@ using WebApi.Providers;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Aggiungo la gestione degli errori --->
+builder.Services.AddExceptionHandler<ExceptionHandlers>();
+builder.Services.AddProblemDetails();
+// <---
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular",
@@ -74,5 +79,9 @@ ProductEndpoints.Map(app);
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+// Aggiungo la gestione degli errori --->
+app.UseExceptionHandler();
+// <---
 
 app.Run();
