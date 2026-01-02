@@ -1,20 +1,33 @@
-import { ApplicationConfig, ErrorHandler, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { ApplicationConfig, ErrorHandler, provideBrowserGlobalErrorListeners, provideEnvironmentInitializer, provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
 import { routes } from './app.routes';
-import { ExceptionHandlerService } from './core/services/exception-handler/exception-handler.service';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeuix/themes/aura';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { ExceptionHandlerService } from './core/services/exception-handler/exception-handler.service';
 import { HttpErrorInterceptor } from './core/services/http-interceptor/httpErrorInterceptor.service';
+import { definePreset, palette } from '@primeuix/themes';
 
+ 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideZonelessChangeDetection(),
     provideBrowserGlobalErrorListeners(),
+    providePrimeNG({
+      theme: {
+        preset: Aura,
+        options: { darkModeSelector: '.p-dark' },
+      },
+    }),
     provideRouter(routes),
     { provide: ErrorHandler, useClass: ExceptionHandlerService },
     provideHttpClient(
       withInterceptors([
         HttpErrorInterceptor
       ])
-    )
-  ]
+    ),
+    provideEnvironmentInitializer(() => {
+       
+    }),
+  ],
 };
