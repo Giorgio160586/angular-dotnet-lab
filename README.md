@@ -7,7 +7,7 @@
   <a href="#about">About</a> &nbsp;|&nbsp;
   <a href="#architecture">Architecture</a> &nbsp;|&nbsp;
   <a href="#technologies">Technologies</a> &nbsp;|&nbsp;
-  <a href="#starting">Starting</a>
+  <a href="#Starting">Starting</a>
 </p>
 
 
@@ -54,7 +54,7 @@ The solution follows a **client-server architecture**:
 
 ---
 
-## :starting: Starting ##
+## Starting ##
 
 ### Frontend (Angular 21)
 
