@@ -3,13 +3,16 @@
   <em>A modern full-stack architecture for scalable web applications</em>
 </div>
 
+<div align="center">
+  <img width="700" title="Logo" alt="Logo" src="angular-dotnet-lab.svg">
+</div>
+
 <p align="center">
   <a href="#about">About</a> &nbsp;|&nbsp;
   <a href="#architecture">Architecture</a> &nbsp;|&nbsp;
   <a href="#technologies">Technologies</a> &nbsp;|&nbsp;
   <a href="#Starting">Starting</a>
 </p>
-
 
 ---
 
