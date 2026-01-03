@@ -9,13 +9,8 @@ import { TableLazyLoadEvent, TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { RatingModule } from 'primeng/rating';
 import { LazyLoadEvent } from 'primeng/api';
+import { ProductModel } from './product.model';
 
-interface ProductModel {
-  name: string;
-  category: string;
-  price: number;
-  status: 'In Stock' | 'Low Stock' | 'Out of Stock';
-}
 
 @Component({
   selector: 'product-overview-widget',
