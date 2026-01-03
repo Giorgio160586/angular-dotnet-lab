@@ -1,4 +1,4 @@
-# Monorepo: Angular Frontend & ASP.NET Core Web API
+# Angular Frontend & ASP.NET Core Web API
 
 This repository contains two main projects:
 
@@ -6,7 +6,47 @@ This repository contains two main projects:
 - **Backend**: ASP.NET Core Web API for business logic and data access.
 
 ---
- 
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <!-- Background with white fill and gray border -->
+  <rect x="10" y="10" width="1180" height="680" rx="24" ry="24"
+        fill="#ffffff" stroke="#cfd8dc" stroke-width="4"/>
+
+  <!-- Title -->
+  <text x="600" y="70" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif"
+        font-size="36" font-weight="600" fill="#37474f">Technologies Overview</text>
+
+  <!-- Column headers -->
+  <rect x="120" y="110" width="420" height="70" rx="14" fill="#eceff1" stroke="#b0bec5"/>
+  <text x="330" y="157" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="30" fill="#263238">Frontend</text>
+
+  <rect x="660" y="110" width="420" height="70" rx="14" fill="#eceff1" stroke="#b0bec5"/>
+  <text x="870" y="157" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="30" fill="#263238">Backend</text>
+
+  <!-- Frontend boxes -->
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="#263238">
+    <rect x="120" y="210" width="420" height="90" rx="12" fill="#f7f9fa" stroke="#b0bec5"/>
+    <text x="150" y="265">Angular 21</text>
+
+    <rect x="120" y="315" width="420" height="90" rx="12" fill="#f7f9fa" stroke="#b0bec5"/>
+    <text x="150" y="370">PrimeNG 21</text>
+
+    <rect x="120" y="420" width="420" height="90" rx="12" fill="#f7f9fa" stroke="#b0bec5"/>
+    <text x="150" y="475">Tailwind CSS</text>
+  </g>
+
+  <!-- Backend boxes -->
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="#263238">
+    <rect x="660" y="210" width="420" height="90" rx="12" fill="#f7f9fa" stroke="#b0bec5"/>
+    <text x="690" y="265">.NET 10</text>
+
+    <rect x="660" y="315" width="420" height="90" rx="12" fill="#f7f9fa" stroke="#b0bec5"/>
+    <text x="690" y="370">Minimal APIs</text>
+
+    <rect x="660" y="420" width="420" height="90" rx="12" fill="#f7f9fa" stroke="#b0bec5"/>
+    <text x="690" y="475">JWT Authentication</text>
+  </g>
+</svg>
 ## Getting Started
 
 ### Frontend (Angular)
