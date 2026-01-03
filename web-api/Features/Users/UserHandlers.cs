@@ -1,8 +1,7 @@
-﻿using WebApi.Providers;
-using WebApi.Models;
+﻿using WebApi.Core.Providers;
 
-namespace WebApi.Handlers;
-internal sealed class LoginUser(TokenProvider tokenProvider)
+namespace WebApi.Features.Users;
+internal sealed class UserHandlers(TokenProvider tokenProvider)
 {
     public async Task<string> Handle(UserModel request)
     {

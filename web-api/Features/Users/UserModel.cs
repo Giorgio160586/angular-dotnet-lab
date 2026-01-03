@@ -1,4 +1,4 @@
-﻿namespace WebApi.Models;
+﻿namespace WebApi.Features.Users;
 public sealed record UserModel
 {
     public int Id { get; set; }

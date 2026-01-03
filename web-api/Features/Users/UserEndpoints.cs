@@ -1,14 +1,11 @@
-﻿using WebApi.Handlers;
-using WebApi.Models;
-
-namespace WebApi.Endpoints;
+﻿namespace WebApi.Features.Users;
 
 public static class UserEndpoints
 {
     private const string Tag = "Users";
     public static IEndpointRouteBuilder Map(this IEndpointRouteBuilder app)
     {
-        app.MapPost("users/login", async (UserModel request, LoginUser login) => await login.Handle(request))
+        app.MapPost("users/login", async (UserModel request, UserHandlers login) => await login.Handle(request))
             .WithTags(Tag);
 
         return app;

@@ -12,7 +12,7 @@ import { ToggleSwitchModule } from 'primeng/toggleswitch';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
-import { LayoutService } from '../core/services/layout.service';
+import { LayoutService } from '../../core/services/layout.service';
 
 const presets = {
   Aura,
@@ -52,62 +52,7 @@ declare type SurfacesType = {
     RippleModule,
     ButtonModule,
   ],
-  template: `
-    <div
-      class="absolute top-16 right-0 w-64 p-4 bg-white dark:bg-surface-900 rounded-md shadow-lg border border-surface-200 dark:border-surface-700 origin-top z-50"
-    >
-      <div class="flex flex-col gap-4">
-        <div>
-          <span
-            class="text-sm text-surface-600 dark:text-surface-400 font-semibold"
-            >Primary</span
-          >
-          <div class="pt-2 flex gap-2 flex-wrap justify-between">
-            <button
-              *ngFor="let pc of primaryColors()"
-              type="button"
-              [title]="pc.name"
-              [ngClass]="[
-                'border-none w-5 h-5 rounded-full p-0 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2',
-                selectedPrimaryColor() === pc.name
-                  ? 'ring-2 ring-primary ring-offset-2'
-                  : ''
-              ]"
-              [ngStyle]="{ backgroundColor: pc?.palette?.['500'] }"
-              (click)="updateColors($event, 'primary', pc)"
-            ></button>
-          </div>
-        </div>
-        <div>
-          <span
-            class="text-sm text-surface-600 dark:text-surface-400 font-semibold"
-            >Surface</span
-          >
-          <div class="pt-2 flex gap-2 flex-wrap justify-between">
-            <button
-              *ngFor="let s of surfaces"
-              type="button"
-              [title]="s.name"
-              [ngClass]="[
-                'border-none w-5 h-5 rounded-full p-0 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2',
-                (
-                  selectedSurface()
-                    ? selectedSurface() === s.name
-                    : isDarkMode()
-                    ? s.name === 'zinc'
-                    : s.name === 'slate'
-                )
-                  ? 'ring-2 ring-primary ring-offset-2'
-                  : ''
-              ]"
-              [ngStyle]="{ backgroundColor: s?.palette?.['500'] }"
-              (click)="updateColors($event, 'surface', s)"
-            ></button>
-          </div>
-        </div>
-      </div>
-    </div>
-  `,
+  templateUrl: './app.config.component.html'
 })
 export class AppConfig {
   @Input() simple: boolean = false;

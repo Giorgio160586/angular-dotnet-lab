@@ -3,9 +3,10 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using Scalar.AspNetCore;  // dotnet add package Scalar.AspNetCore
 using System.Text;
-using WebApi.Endpoints;
-using WebApi.Handlers;
-using WebApi.Providers;
+using WebApi.Core.Handlers;
+using WebApi.Core.Providers;
+using WebApi.Features.Products;
+using WebApi.Features.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -58,7 +59,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-builder.Services.AddScoped<LoginUser>();
+builder.Services.AddScoped<UserHandlers>();
 
 var app = builder.Build();
 

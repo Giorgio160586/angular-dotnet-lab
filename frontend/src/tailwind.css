@@ -1,12 +1,41 @@
 @import "tailwindcss";
 @import "tailwindcss-primeui";
+
 @custom-variant dark (&:where(.p-dark, .p-dark *));
 
-.p-datatable-mask {
-  @apply backdrop-blur-sm! bg-surface-0/20! dark:bg-surface-900/20!;
+
+/*
+Installazioni delle estensioni fatte:
+Tailwind CSS IntelliSense
+PostCSS Language Support
+Live Server -> caricamento della pagina automatico
+*/
+
+@layer components {
+  .p-datatable-mask {
+    @apply backdrop-blur-sm! bg-surface-0/20! dark:bg-surface-900/20!;
+  }
+
+  .p-datatable-loading-icon {
+    @apply text-primary!;
+  }
+
+  .p-datatable .p-datatable-thead > tr > th {
+    @apply text-xs;
+  }
+
+  .p-datatable .p-datatable-tbody > tr > td {
+    @apply text-xs;
+  }
+
+  .p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
+    @apply py-[0.5]! m-0!;
+  }
 }
 
-.p-datatable-loading-icon {
-  @apply text-primary!;
+@layer components {
+  .p-tag,
+  .p-tag .p-tag-label {
+    @apply text-xs!;
+  }
 }
-

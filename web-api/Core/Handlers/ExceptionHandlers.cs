@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Handlers;
+namespace WebApi.Core.Handlers;
 
 internal sealed class ExceptionHandlers : IExceptionHandler
 {

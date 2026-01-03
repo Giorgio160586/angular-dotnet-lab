@@ -1,9 +1,9 @@
 ﻿using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using WebApi.Models;
+using WebApi.Features.Users;
 
-namespace WebApi.Providers;
+namespace WebApi.Core.Providers;
 
 internal sealed class TokenProvider(IConfiguration configuration)
 {

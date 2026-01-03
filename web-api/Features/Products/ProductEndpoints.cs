@@ -1,6 +1,4 @@
-﻿using WebApi.Models;
-
-namespace WebApi.Endpoints;
+﻿namespace WebApi.Features.Products;
 
 public static class ProductEndpoints
 {
