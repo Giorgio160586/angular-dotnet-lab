@@ -5,11 +5,12 @@ import { SalesTrendWidget } from "./sales-trend-widget/salestrendwidget";
 import { RecentActivityWidget } from "./recent-activity-widget/recentactivitywidget";
 import { AppFooter } from "../shared/app-footer/app.footer.component";
 import { ProductOverviewWidget } from './products/products.component';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [AppTopbar, StatsWidget, SalesTrendWidget, RecentActivityWidget, ProductOverviewWidget, AppFooter],
+  imports: [AppTopbar, StatsWidget, SalesTrendWidget, RecentActivityWidget, ProductOverviewWidget, AppFooter, ToastModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

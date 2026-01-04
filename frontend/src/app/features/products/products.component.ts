@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject, OnInit, Signal, signal } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -10,7 +10,7 @@ import { TagModule } from 'primeng/tag';
 import { RatingModule } from 'primeng/rating';
 import { LazyLoadEvent } from 'primeng/api';
 import { ProductModel } from './product.model';
-
+import { ProductsService } from './products.service';
 
 @Component({
   selector: 'product-overview-widget',
@@ -29,46 +29,28 @@ import { ProductModel } from './product.model';
   templateUrl: './products.component.html'
 })
 export class ProductOverviewWidget {
-  selectedProduct!: ProductModel;
-
-  products: ProductModel[] = [
-    { name: 'Laptop Pro', category: 'Electronics', price: 2499, status: 'In Stock' },
-    { name: 'Wireless Mouse', category: 'Accessories', price: 49, status: 'Low Stock' },
-    { name: 'Monitor 4K', category: 'Electronics', price: 699, status: 'Out of Stock' },
-    { name: 'Keyboard', category: 'Accessories', price: 149, status: 'In Stock' },
-    { name: 'Laptop Pro', category: 'Electronics', price: 2499, status: 'In Stock' },
-    { name: 'Wireless Mouse', category: 'Accessories', price: 49, status: 'Low Stock' },
-    { name: 'Monitor 4K', category: 'Electronics', price: 699, status: 'Out of Stock' },
-    { name: 'Keyboard', category: 'Accessories', price: 149, status: 'In Stock' },
-    { name: 'Laptop Pro', category: 'Electronics', price: 2499, status: 'In Stock' },
-    { name: 'Wireless Mouse', category: 'Accessories', price: 49, status: 'Low Stock' },
-    { name: 'Monitor 4K', category: 'Electronics', price: 699, status: 'Out of Stock' },
-    { name: 'Keyboard', category: 'Accessories', price: 149, status: 'In Stock' },
-    { name: 'Laptop Pro', category: 'Electronics', price: 2499, status: 'In Stock' },
-    { name: 'Wireless Mouse', category: 'Accessories', price: 49, status: 'Low Stock' },
-    { name: 'Monitor 4K', category: 'Electronics', price: 699, status: 'Out of Stock' },
-    { name: 'Keyboard', category: 'Accessories', price: 149, status: 'In Stock' },
-  ];
-  searchQuery = '';
-  loading = false;
-  filteredProducts: any = [];
-
-  ngOnInit() {
-    this.filteredProducts = [...this.products];
-  }
-
-  searchProducts = () => {
-    this.loading = true;
-    this.filteredProducts = this.products.filter(
-      (product) =>
-        product.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-        product.category
-          .toLowerCase()
-          .includes(this.searchQuery.toLowerCase()) ||
-        product.status.toLowerCase().includes(this.searchQuery.toLowerCase())
+  private readonly productsService = inject(ProductsService);
+  protected readonly products: Signal<ProductModel[]> = this.productsService.getAll();
+  protected selectedProduct?: ProductModel;
+  
+  protected readonly filteredProducts = computed<ProductModel[]>(() => {
+    const list = this.products();
+    const q = this.searchQuery().trim().toLowerCase();
+    if (!q) return list;
+    return list.filter(p =>
+      (p.name ?? '').toLowerCase().includes(q) ||
+      (p.category ?? '').toLowerCase().includes(q) ||
+      (p.status ?? '').toLowerCase().includes(q)
     );
+  });
+
+  protected readonly searchQuery = signal<string>('');
+  protected readonly loading = signal<boolean>(false);
+
+  protected searchProducts = () => {
+    this.loading.set(true);
     setTimeout(() => {
-      this.loading = false;
+      this.loading.set(false);
     }, 300);
   };
 

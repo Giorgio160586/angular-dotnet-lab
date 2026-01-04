@@ -6,8 +6,8 @@ public static class ProductEndpoints
     public static IEndpointRouteBuilder Map(this IEndpointRouteBuilder app)
     {
         app.MapGet("/products", () => new[] { "Product 1", "Product 2", "Product 3" })
-           .WithTags(Tag)
-           .RequireAuthorization();
+           .WithTags(Tag);
+           //.RequireAuthorization();
 
         app.MapPost("/product/insert", (ProductModel model) => { return "OK"; })
             .WithTags(Tag)

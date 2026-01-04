@@ -4,7 +4,7 @@
 </div>
 
 <div align="center">
-  <img width="700" title="Logo" alt="Logo" src="angular-dotnet-lab.svg">
+  <img width="700" title="Logo" alt="Logo" src="./frontend/public/angular-dotnet-lab.svg">
 </div>
 
 <p align="center">

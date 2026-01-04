@@ -5,8 +5,9 @@ import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { ExceptionHandlerService } from './core/exception-handler/exception-handler.service';
-import { AuthInterceptor } from './core/interceptors/auth.interceptor.service';
+import { HttpInterceptorService } from './core/interceptors/http.interceptor.service';
 import { definePreset, palette } from '@primeuix/themes';
+import { MessageService } from 'primeng/api';
 
  
 export const appConfig: ApplicationConfig = {
@@ -23,9 +24,10 @@ export const appConfig: ApplicationConfig = {
     { provide: ErrorHandler, useClass: ExceptionHandlerService },
     provideHttpClient(
       withInterceptors([
-        AuthInterceptor
+        HttpInterceptorService
       ])
     ),
+    MessageService,
     provideEnvironmentInitializer(() => {
        
     }),
