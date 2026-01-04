@@ -38,12 +38,17 @@ The solution follows a **client-server architecture**:
   - Built on .NET 10 for high performance and scalability.
 
 
+**Vertical Slice Architecture:**
+
+A vertical slice architecture (also called organize by feature) is a way of structuring your application so that each feature is self-contained and includes everything it needs: UI, business logic, data access, and sometimes even tests. Instead of grouping files by technical type (e.g., all components together, all services together), you group them by feature.
+
+
 ---
 
 ## Technologies ##
 
 <a href="https://angular.dev">
-  <img width="50" title="Angular" alt="Angular Logo" src="https://angular.io/assets/images/logos/angular/angular.svg">
+  <img width="50" title="Angular" alt="Angular Logo" src="./frontend/public/angular-icon.svg">
 </a> &nbsp;&nbsp;
 <a href="https://dotnet.microsoft.com">
   <img width="50" title=".NET Core" alt=".NET Logo" src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Microsoft_.NET_logo.svg">
