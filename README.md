@@ -28,6 +28,7 @@ This repository provides a modern full-stack architecture for scalable web appli
   - **Tailwind CSS** – Utility-first CSS framework for responsive and customizable UI.
   - **PrimeNG** – Rich set of UI components for Angular.
   - **Vitest** – Fast and lightweight testing framework for unit tests.
+  - **[HttpInterceptor](frontend/src/app/core/interceptors/http.interceptor.service.ts)* – Angular service that globally intercepts HTTP requests and responses to modify them (e.g., add headers, change URLs) or handle errors before they reach the app or server..
 
 ### Backend (ASP.NET - Minimal API) ###
   - **Scalar** – Tool for API documentation and testing, similar to Swagger but with enhanced features.
@@ -60,6 +61,7 @@ This repository provides a modern full-stack architecture for scalable web appli
 ### Frontend (Angular 21)
 
 ```bash
+npm i
 ng test
 npm start
 ```
@@ -67,7 +69,6 @@ npm start
 ### Backend (C# - WebApi minimal API - NET 10)
 
 ```bash
-dotnet restore
 dotnet build
 dotnet run
 ```
