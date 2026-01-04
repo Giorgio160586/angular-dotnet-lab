@@ -18,30 +18,19 @@
 
 ## About ##
 
-This repository contains two main projects:
-
-- **Frontend**: Angular application for the user interface.
-- **Backend**: ASP.NET Core Web API for business logic and data access.
+This repository provides a modern full-stack architecture for scalable web applications, combining an Angular 21 frontend with Tailwind CSS for styling and PrimeNG for rich UI components, tested using Vitest for speed and reliability. The backend is built with ASP.NET Core Minimal APIs on .NET 10, following a Vertical Slice Architecture to keep features self-contained and maintainable, while API documentation and testing are powered by Scalar. Secure communication between frontend and backend is implemented through JWT (JSON Web Token), ensuring robust authentication and authorization. This approach delivers a clean, modular, and high-performance solution, making it a robust foundation for modern, high-performance web solutions.
 
 ---
 
-## Architecture
+## Architecture ##
 
-The solution follows a **client-server architecture**:
+### Frontend (Angular 21) ###
+  - **Tailwind CSS** – Utility-first CSS framework for responsive and customizable UI.
+  - **PrimeNG** – Rich set of UI components for Angular.
+  - **Vitest** – Fast and lightweight testing framework for unit tests.
 
-- **Angular Frontend**  
-  - Provides a responsive UI built with Angular 21 and Tailwind CSS.
-  - Communicates with the backend via RESTful APIs.
-
-- **ASP.NET Core Backend**  
-  - Implements business logic and data access using minimal APIs.
-  - Built on .NET 10 for high performance and scalability.
-
-
-**Vertical Slice Architecture:**
-
-A vertical slice architecture (also called organize by feature) is a way of structuring your application so that each feature is self-contained and includes everything it needs: UI, business logic, data access, and sometimes even tests. Instead of grouping files by technical type (e.g., all components together, all services together), you group them by feature.
-
+### Backend (ASP.NET - Minimal API) ###
+  - **Scalar** – Tool for API documentation and testing, similar to Swagger but with enhanced features.
 
 ---
 
@@ -59,6 +48,10 @@ A vertical slice architecture (also called organize by feature) is a way of stru
 <a href="https://vitest.dev">
   <img width="50" title="Vitest" alt="Vitest Logo" src="https://vitest.dev/logo.svg">
 </a>
+<a href="https://primeng.org">
+  <img width="50" title="Vitest" alt="Vitest Logo" src="./frontend/public/primeng-original.svg">
+</a>
+
 
 ---
 
@@ -74,9 +67,7 @@ npm start
 ### Backend (C# - WebApi minimal API - NET 10)
 
 ```bash
-
 dotnet restore
 dotnet build
 dotnet run
-
 ```
