@@ -4,7 +4,7 @@
 </div>
 
 <div align="center">
-  <img width="700" title="Logo" alt="Logo" src="./frontend/public/angular-dotnet-lab.svg">
+  <img width="700" title="Logo" alt="Logo" src="./frontend/public/angular-dotnet-lab.svg" />
 </div>
 
 <p align="center">
@@ -33,7 +33,7 @@ This repository provides a modern full-stack architecture for scalable web appli
   
   <div align="center">
     <a href="./frontend/src/app/core/exception-handler/exception-handler.service.spec.ts">
-      <img width="700" title="Vitest" alt="Vitest" src="./frontend/public/vitest.png">
+      <img width="700" title="Vitest" alt="Vitest" src="./frontend/public/vitest.png" />
     </a>
   </div>
 
@@ -45,16 +45,21 @@ This repository provides a modern full-stack architecture for scalable web appli
     - When the backend sends a response, you validate it against a Zod schema to ensure it matches the expected structure.
     - When sending data to the backend, you validate the payload before making the request.
 
-
     <div align="center">
       <a href="./frontend/src/app/core/exception-handler/exception-handler..service.spec.ts">
-        <img title="ZOD" alt="ZOD" src="./frontend/public/ZOD.png">
+        <img title="Zod" alt="Zod" src="./frontend/public/ZOD.png" />
       </a>
     </div>
 
 ---
 ### Backend - WebApi C# ###
-  - Scalar – Tool for API documentation and testing, similar to Swagger but with enhanced features.
+  - [Scalar](https://scalar.com/) – Scalar is a modern, open-source developer experience platform designed to streamline API documentation and testing, offering an intuitive interface, advanced features, and improved usability compared to traditional tools like Swagger, making it ideal for creating, exploring, and managing APIs efficiently.
+
+    <div align="center">
+      <a href="/frontend/public/scalar.png">
+        <img width="700"  title="Scalar" alt="Scalar" src="./frontend/public/scalar.png" />
+      </a>
+    </div>
 
 ---
 
