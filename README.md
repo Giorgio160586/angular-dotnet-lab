@@ -26,18 +26,21 @@ This repository provides a modern full-stack architecture for scalable web appli
 
 ### Frontend (Angular 21) ###
   - **Tailwind CSS** – Utility-first CSS framework for responsive and customizable UI.
-  - **PrimeNG** – Rich set of UI components for Angular.
-  - **[Vitest](./frontend/public/vitest.png)** – New default Testing Framework for Angular.
-    <div align="center">
-      <a href="./frontend/public/vitest.png">
-        <img width="700" title="Angular" alt="Angular Logo" src="./frontend/public/vitest.png">
-      </a>
-    </div>
+  
+  - [PrimeNG - Angular UI Component Library](https://primeng.org/) The Next-Gen UI Suite for Angular. Enhance your web applications with PrimeNG's comprehensive suite of customizable, feature-rich UI components.
+  
+  - [Vitest | Next Generation testing framework](https://vitest.dev/) – Vitest is the new default testing framework for Angular, designed to be fast, modern, and TypeScript-friendly. It leverages Vite for ultra-fast builds and offers a Jest-like API for familiarity.
+  
+  <div align="center">
+    <a href="./frontend/src/app/core/exception-handler/exception-handler..service.spec.ts">
+      <img width="700" title="Angular" alt="Angular Logo" src="./frontend/public/vitest.png">
+    </a>
+  </div>
 
-  - **[HttpInterceptor](frontend/src/app/core/interceptors/http.interceptor.service.ts)** – Angular service that globally intercepts HTTP requests and responses to modify them (e.g., add headers, change URLs) or handle errors before they reach the app or server.
+  - [HttpInterceptor](frontend/src/app/core/interceptors/http.interceptor.service.ts) – Angular service that globally intercepts HTTP requests and responses to modify them (e.g., add headers, change URLs) or handle errors before they reach the app or server.
 
 ### Backend (ASP.NET - Minimal API) ###
-  - **Scalar** – Tool for API documentation and testing, similar to Swagger but with enhanced features.
+  - Scalar – Tool for API documentation and testing, similar to Swagger but with enhanced features.
 
 ---
 
