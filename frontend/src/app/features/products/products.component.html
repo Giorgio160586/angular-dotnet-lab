@@ -18,33 +18,31 @@
     </p-iconfield>
     </div>
     <div class="flex flex-col gap-2">
+
+        {{ filteredProducts().length }}
     <p-table
-        [scrollable]="true"
-        scrollHeight="400px"
-        [virtualScroll]="true"
-        [rows]="10"
-        [virtualScrollItemSize]="46"
         [value]="filteredProducts()"
+        [resizableColumns]="true"
+        [rows]="10"
+        [totalRecords]="filteredProducts().length"
         selectionMode="single"
+        [size]="'small'"
+        [paginator]="false"
+        [scrollable]="true"
+        [virtualScroll]="true"
+        [virtualScrollItemSize]="50"
+        scrollHeight="300px"
         [(selection)]="selectedProduct"
         [loading]="loading()"
         [lazy]="true"
         (onLazyLoad)="onPageChange($event)"
-        [size]="'small'"
     >
         <ng-template #header>
         <tr>
-            <th pSortableColumn="name">Name <p-sortIcon field="name" /></th>
-            <th pSortableColumn="category">
-            Category <p-sortIcon field="category" />
-            </th>
-
-            <th pSortableColumn="price">
-            Price <p-sortIcon field="price" />
-            </th>
-            <th pSortableColumn="status">
-            Status <p-sortIcon field="status" />
-            </th>
+            <th pSortableColumn="name">Name<p-sortIcon field="name" /></th>
+            <th pSortableColumn="category">Category<p-sortIcon field="category" /></th>
+            <th pSortableColumn="price">Price<p-sortIcon field="price" /> </th>
+            <th pSortableColumn="status">Status<p-sortIcon field="status" /></th>
         </tr>
         </ng-template>
         <ng-template #body let-product>

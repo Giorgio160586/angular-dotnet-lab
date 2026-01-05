@@ -16,26 +16,37 @@
 
 ---
 
-## About ##
+### About ###
 
-This repository provides a modern full-stack architecture for scalable web applications, combining an Angular 21 frontend with Tailwind CSS for styling and PrimeNG for components, tested using Vitest. The backend is built with ASP.NET Core Minimal APIs on .NET 10, following a Vertical Slice Architecture, while API documentation and testing are powered by Scalar. Secure communication between frontend and backend is implemented through JWT (JSON Web Token), ensuring robust authentication and authorization. This approach delivers a clean, modular, and high-performance solution, making it a robust foundation for modern, high-performance web solutions.
+> This repository provides a modern full-stack architecture for scalable web applications, combining an Angular 21 frontend with Tailwind CSS for styling and PrimeNG for components, tested using Vitest. The backend is built with ASP.NET Core Minimal APIs on .NET 10, following a Vertical Slice Architecture, while API documentation and testing are powered by Scalar. Secure communication between frontend and backend is implemented through JWT (JSON Web Token), ensuring robust authentication and authorization. This approach delivers a clean, modular, and high-performance solution, making it a robust foundation for modern, high-performance web solutions.
 
 ---
 
-## Architecture ##
+### Architecture ###
 
-### Frontend - Angular ###
+#### Frontend - Angular ####
   - **Tailwind CSS** – Utility-first CSS framework for responsive and customizable UI.
   
   - [PrimeNG - Angular UI Component Library](https://primeng.org/) The Next-Gen UI Suite for Angular. Enhance your web applications with PrimeNG's comprehensive suite of customizable, feature-rich UI components.
   
   - [Vitest | Next Generation testing framework](https://vitest.dev/) – Vitest is the new default testing framework for Angular, designed to be fast, modern, and TypeScript-friendly. It leverages Vite for ultra-fast builds and offers a Jest-like API for familiarity.
-  
-  <div align="center">
-    <a href="./frontend/src/app/core/exception-handler/exception-handler.service.spec.ts">
-      <img title="Vitest" alt="Vitest" src="./frontend/public/vitest.png" />
-    </a>
-  </div>
+
+<table align="center" style="border-collapse: separate; border-spacing: 10px;">
+  <tr>
+    <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px; text-align: center;">
+      <em>Vitest Web UI</em><br/>
+      <a href="./frontend/public/vitest.png">
+        <img src="./frontend/public/vitest.png" alt="Vitest Web UI" style="width: 420px; height: auto;" />
+      </a>
+    </td>
+    <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px; text-align: center;">
+      <em>Vitest console</em><br/>
+      <a href="./frontend/public/vitest-2.png">
+        <img src="./frontend/public/vitest-2.png" alt="Vitest console" style="width: 420px; height: auto;" />
+      </a>
+    </td>
+  </tr>
+</table>
 
   - [HttpInterceptor](frontend/src/app/core/interceptors/http.interceptor.service.ts) – Angular service that globally intercepts HTTP requests and responses to modify them (e.g., add headers, change URLs) or handle errors before they reach the app or server.
 
@@ -45,29 +56,35 @@ This repository provides a modern full-stack architecture for scalable web appli
     - When the backend sends a response, you validate it against a Zod schema to ensure it matches the expected structure.
     - When sending data to the backend, you validate the payload before making the request.
 
-    <div align="center">
-      <a href="./frontend/src/app/core/exception-handler/exception-handler..service.spec.ts">
-        <img title="Zod" alt="Zod" src="./frontend/public/ZOD.png" />
+<table align="center" style="border-collapse: separate; border-spacing: 10px;">
+  <tr>
+    <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px; text-align: center;">
+      <em>If validation fails, a toast message is displayed.</em><br/>
+      <a href="./frontend/src/app/core/exception-handler/exception-handler.service.spec.ts">
+        <img src="./frontend/public/ZOD.png" alt="Zod" style="height: auto;" />
       </a>
-    </div>
-    
-    <div align="center">
-      <em>If validation fails, a toast message is displayed.</em>
-    </div>
+    </td>
+  </tr>
+</table>
 
 ---
-### Backend - WebApi C# ###
+#### Backend - WebApi C# ####
   - [Scalar](https://scalar.com/) – Scalar is a modern, open-source developer experience platform designed to streamline API documentation and testing, offering an intuitive interface, advanced features, and improved usability compared to traditional tools like Swagger, making it ideal for creating, exploring, and managing APIs efficiently.
 
-    <div align="center">
-      <a href="/frontend/public/scalar.png">
-        <img   title="Scalar" alt="Scalar" src="./frontend/public/scalar.png" />
+<table align="center" style="border-collapse: separate; border-spacing: 10px; ">
+  <tr>
+    <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px; text-align: center;">
+      <em>Scalar</em><br/>
+      <a href="./frontend/public/scalar.png">
+        <img src="./frontend/public/scalar.png" alt="Scalar" style="width: 420px; height: auto;" />
       </a>
-    </div>
+    </td>
+  </tr>
+</table>
 
 ---
 
-## Technologies ##
+### Technologies ###
 
 <a href="https://angular.dev">
   <img width="50" title="Angular" alt="Angular Logo" src="./frontend/public/angular-icon.svg">
@@ -88,9 +105,9 @@ This repository provides a modern full-stack architecture for scalable web appli
 
 ---
 
-## Starting ##
+### Starting ###
 
-### Frontend ###
+#### Frontend ####
 
 ```bash
 npm i
@@ -99,7 +116,7 @@ npm start
 ```
 ---
 
-### Backend ###
+#### Backend ####
 
 ```bash
 dotnet build

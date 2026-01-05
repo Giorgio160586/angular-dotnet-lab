@@ -47,7 +47,6 @@ public static class ProductEndpoints
 
     public static IEndpointRouteBuilder Map(this IEndpointRouteBuilder app)
     {
-
         app.MapGet("/products", () => Products)
            .WithTags(Tag);
            //.RequireAuthorization();

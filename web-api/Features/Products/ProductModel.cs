@@ -16,7 +16,6 @@ public enum ProductStatus
     OutOfStock
 }
 
-
 public sealed record ProductModel
 {
     public int Id { get; set; }
