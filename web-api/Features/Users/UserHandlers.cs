@@ -3,7 +3,7 @@
 namespace WebApi.Features.Users;
 internal sealed class UserHandlers(TokenProvider tokenProvider)
 {
-    public async Task<string> Handle(UserModel request)
+    public async Task<string> Login(UserModel request)
     {
         if (String.IsNullOrEmpty(request.UserName))
             throw new UnauthorizedAccessException("Invalid username.");

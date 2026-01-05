@@ -60,13 +60,6 @@
     - When the backend sends a response, you validate it against a Zod schema to ensure it matches the expected structure.
     - When sending data to the backend, you validate the payload before making the request.
 
-
-<div data-view-component="true" class="mb-2 p-3 border rounded-2">
-  <div data-view-component="true" class="d-flex flex-items-stretch">
-    Giorgio
-  </div>
-</div>
-
 <table align="center" border="0">
   <tr>
     <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px;">

@@ -19,23 +19,24 @@
     </div>
     <div class="flex flex-col gap-2">
 
-        {{ filteredProducts().length }}
+
     <p-table
-        [value]="filteredProducts()"
+        [value]="products()"
         [resizableColumns]="true"
+        [lazyLoadOnInit]="true"
         [rows]="10"
-        [totalRecords]="filteredProducts().length"
+        [totalRecords]="totalRecords()"
         selectionMode="single"
         [size]="'small'"
-        [paginator]="false"
-        [scrollable]="true"
-        [virtualScroll]="true"
-        [virtualScrollItemSize]="50"
-        scrollHeight="300px"
+        [paginator]="true"
+        [scrollable]="false"
+        [virtualScroll]="false"
+        [virtualScrollItemSize]="46"
+        scrollHeight="400px"
         [(selection)]="selectedProduct"
-        [loading]="loading()"
+        [loading]="loading"
         [lazy]="true"
-        (onLazyLoad)="onPageChange($event)"
+        (onLazyLoad)="onLazyLoad($event)"
     >
         <ng-template #header>
         <tr>

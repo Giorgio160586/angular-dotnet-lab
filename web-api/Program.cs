@@ -60,6 +60,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 builder.Services.AddScoped<UserHandlers>();
+builder.Services.AddScoped<ProductHandlers>();
 
 var app = builder.Build();
 
