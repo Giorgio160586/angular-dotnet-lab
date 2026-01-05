@@ -33,7 +33,7 @@ This repository provides a modern full-stack architecture for scalable web appli
   
   <div align="center">
     <a href="./frontend/src/app/core/exception-handler/exception-handler.service.spec.ts">
-      <img width="700" title="Vitest" alt="Vitest" src="./frontend/public/vitest.png" />
+      <img title="Vitest" alt="Vitest" src="./frontend/public/vitest.png" />
     </a>
   </div>
 
@@ -50,6 +50,10 @@ This repository provides a modern full-stack architecture for scalable web appli
         <img title="Zod" alt="Zod" src="./frontend/public/ZOD.png" />
       </a>
     </div>
+    
+    <div align="center">
+      <em>If validation fails, a toast message is displayed.</em>
+    </div>
 
 ---
 ### Backend - WebApi C# ###
@@ -57,7 +61,7 @@ This repository provides a modern full-stack architecture for scalable web appli
 
     <div align="center">
       <a href="/frontend/public/scalar.png">
-        <img width="700"  title="Scalar" alt="Scalar" src="./frontend/public/scalar.png" />
+        <img   title="Scalar" alt="Scalar" src="./frontend/public/scalar.png" />
       </a>
     </div>
 
