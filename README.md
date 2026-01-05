@@ -31,7 +31,7 @@
   
   - [Vitest | Next Generation testing framework](https://vitest.dev/) – Vitest is the new default testing framework for Angular, designed to be fast, modern, and TypeScript-friendly. It leverages Vite for ultra-fast builds and offers a Jest-like API for familiarity.
 
-<table align="center" style="border-collapse: separate; border: 0px;  border-spacing: 10px;">
+<table align="center" border="0">
   <tr>
     <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px;">
       <div align="center">
@@ -60,7 +60,7 @@
     - When the backend sends a response, you validate it against a Zod schema to ensure it matches the expected structure.
     - When sending data to the backend, you validate the payload before making the request.
 
-<table align="center" style="border-collapse: separate; border: 0px; border-spacing: 10px;">
+<table align="center" border="0">
   <tr>
     <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px;">
       <div align="center">
@@ -77,7 +77,7 @@
 #### Backend - WebApi C# ####
   - [Scalar](https://scalar.com/) – Scalar is a modern, open-source developer experience platform designed to streamline API documentation and testing, offering an intuitive interface, advanced features, and improved usability compared to traditional tools like Swagger, making it ideal for creating, exploring, and managing APIs efficiently.
 
-<table align="center" style="border-collapse: separate; border: 0px; border-spacing: 10px; ">
+<table align="center" border="0">
   <tr>
     <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px; min-width: 440px;">
       <div align="center">
