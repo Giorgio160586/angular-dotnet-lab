@@ -24,7 +24,7 @@ This repository provides a modern full-stack architecture for scalable web appli
 
 ## Architecture ##
 
-### Frontend (Angular 21) ###
+### Frontend - Angular ###
   - **Tailwind CSS** – Utility-first CSS framework for responsive and customizable UI.
   
   - [PrimeNG - Angular UI Component Library](https://primeng.org/) The Next-Gen UI Suite for Angular. Enhance your web applications with PrimeNG's comprehensive suite of customizable, feature-rich UI components.
@@ -32,14 +32,27 @@ This repository provides a modern full-stack architecture for scalable web appli
   - [Vitest | Next Generation testing framework](https://vitest.dev/) – Vitest is the new default testing framework for Angular, designed to be fast, modern, and TypeScript-friendly. It leverages Vite for ultra-fast builds and offers a Jest-like API for familiarity.
   
   <div align="center">
-    <a href="./frontend/src/app/core/exception-handler/exception-handler..service.spec.ts">
-      <img width="700" title="Angular" alt="Angular Logo" src="./frontend/public/vitest.png">
+    <a href="./frontend/src/app/core/exception-handler/exception-handler.service.spec.ts">
+      <img width="700" title="Vitest" alt="Vitest" src="./frontend/public/vitest.png">
     </a>
   </div>
 
   - [HttpInterceptor](frontend/src/app/core/interceptors/http.interceptor.service.ts) – Angular service that globally intercepts HTTP requests and responses to modify them (e.g., add headers, change URLs) or handle errors before they reach the app or server.
 
-### Backend (ASP.NET - Minimal API) ###
+  - [ZOD](frontend/src/app/core/interceptors/http.interceptor.service.ts) - Zod is a TypeScript-first schema validation library. It   allows you to define schemas for your data and validate objects against those schemas at runtime.
+    I used Zod to validate communication between the Backend and Frontend. This means:
+
+    - When the backend sends a response, you validate it against a Zod schema to ensure it matches the expected structure.
+    - When sending data to the backend, you validate the payload before making the request.
+
+    <div align="center">
+      <a href="./frontend/src/app/core/exception-handler/exception-handler..service.spec.ts">
+        <img title="ZOD" alt="ZOD" src="./frontend/public/ZOD.png">
+      </a>
+    </div>
+
+---
+### Backend - WebApi C# ###
   - Scalar – Tool for API documentation and testing, similar to Swagger but with enhanced features.
 
 ---
@@ -67,15 +80,16 @@ This repository provides a modern full-stack architecture for scalable web appli
 
 ## Starting ##
 
-### Frontend (Angular 21)
+### Frontend ###
 
 ```bash
 npm i
 npm run vitest:ui
 npm start
 ```
+---
 
-### Backend (C# - WebApi minimal API - NET 10)
+### Backend ###
 
 ```bash
 dotnet build

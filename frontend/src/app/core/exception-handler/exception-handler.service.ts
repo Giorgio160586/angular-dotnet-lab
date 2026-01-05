@@ -4,7 +4,7 @@ import { MessageService, ToastMessageOptions } from 'primeng/api';
 
 @Injectable({ providedIn: 'root' })
 export class ExceptionHandlerService implements ErrorHandler {
-  public messageService = inject(MessageService);
+  public readonly messageService = inject(MessageService);
 
   handleError(error: unknown): void {
     // HTTP error
