@@ -18,7 +18,7 @@
 
 ## About ##
 
-This repository provides a modern full-stack architecture for scalable web applications, combining an Angular 21 frontend with Tailwind CSS for styling and PrimeNG for rich UI components, tested using Vitest for speed and reliability. The backend is built with ASP.NET Core Minimal APIs on .NET 10, following a Vertical Slice Architecture to keep features self-contained and maintainable, while API documentation and testing are powered by Scalar. Secure communication between frontend and backend is implemented through JWT (JSON Web Token), ensuring robust authentication and authorization. This approach delivers a clean, modular, and high-performance solution, making it a robust foundation for modern, high-performance web solutions.
+This repository provides a modern full-stack architecture for scalable web applications, combining an Angular 21 frontend with Tailwind CSS for styling and PrimeNG for components, tested using Vitest. The backend is built with ASP.NET Core Minimal APIs on .NET 10, following a Vertical Slice Architecture, while API documentation and testing are powered by Scalar. Secure communication between frontend and backend is implemented through JWT (JSON Web Token), ensuring robust authentication and authorization. This approach delivers a clean, modular, and high-performance solution, making it a robust foundation for modern, high-performance web solutions.
 
 ---
 
@@ -27,8 +27,14 @@ This repository provides a modern full-stack architecture for scalable web appli
 ### Frontend (Angular 21) ###
   - **Tailwind CSS** – Utility-first CSS framework for responsive and customizable UI.
   - **PrimeNG** – Rich set of UI components for Angular.
-  - **Vitest** – Fast and lightweight testing framework for unit tests.
-  - **[HttpInterceptor](frontend/src/app/core/interceptors/http.interceptor.service.ts)** – Angular service that globally intercepts HTTP requests and responses to modify them (e.g., add headers, change URLs) or handle errors before they reach the app or server..
+  - **[Vitest](./frontend/public/vitest.png)** – New default Testing Framework for Angular.
+    <div align="center">
+      <a href="./frontend/public/vitest.png">
+        <img width="700" title="Angular" alt="Angular Logo" src="./frontend/public/vitest.png">
+      </a>
+    </div>
+
+  - **[HttpInterceptor](frontend/src/app/core/interceptors/http.interceptor.service.ts)** – Angular service that globally intercepts HTTP requests and responses to modify them (e.g., add headers, change URLs) or handle errors before they reach the app or server.
 
 ### Backend (ASP.NET - Minimal API) ###
   - **Scalar** – Tool for API documentation and testing, similar to Swagger but with enhanced features.
@@ -62,7 +68,7 @@ This repository provides a modern full-stack architecture for scalable web appli
 
 ```bash
 npm i
-ng test
+npm run vitest:ui
 npm start
 ```
 
