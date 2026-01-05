@@ -39,11 +39,12 @@ This repository provides a modern full-stack architecture for scalable web appli
 
   - [HttpInterceptor](frontend/src/app/core/interceptors/http.interceptor.service.ts) – Angular service that globally intercepts HTTP requests and responses to modify them (e.g., add headers, change URLs) or handle errors before they reach the app or server.
 
-  - [ZOD](frontend/src/app/core/interceptors/http.interceptor.service.ts) - Zod is a TypeScript-first schema validation library. It   allows you to define schemas for your data and validate objects against those schemas at runtime.
+  - [Zod](https://zod.dev/) - Zod is a TypeScript-first schema validation library. It   allows you to define schemas for your data and validate objects against those schemas at runtime.
     I used Zod to validate communication between the Backend and Frontend. This means:
 
     - When the backend sends a response, you validate it against a Zod schema to ensure it matches the expected structure.
     - When sending data to the backend, you validate the payload before making the request.
+
 
     <div align="center">
       <a href="./frontend/src/app/core/exception-handler/exception-handler..service.spec.ts">

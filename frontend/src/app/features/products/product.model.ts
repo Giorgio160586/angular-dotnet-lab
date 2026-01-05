@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 export interface ProductModel {
+  id: number;
   name: string;
   category: string;
   price: number;
@@ -8,6 +9,7 @@ export interface ProductModel {
 }
 
 export const ProductSchema = z.object({
+  id: z.number(),
   name: z.string(),
   category: z.string(),
   price: z.number(),

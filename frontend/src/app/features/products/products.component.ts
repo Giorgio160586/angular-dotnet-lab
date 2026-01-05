@@ -58,3 +58,4 @@ export class ProductOverviewWidget {
     console.log("[ProductOverviewWidget] onPageChange", { event })
   }
 }
+
