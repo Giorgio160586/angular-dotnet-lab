@@ -33,14 +33,18 @@
 
 <table align="center" style="border-collapse: separate; border: 0px;  border-spacing: 10px;">
   <tr>
-    <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px; text-align: center;">
-      <em>Vitest Web UI</em><br/>
+    <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px;">
+      <div align="center">
+        <em>Vitest Web UI</em><br/>
+      <div>
       <a href="./frontend/public/vitest.png">
         <img src="./frontend/public/vitest.png" alt="Vitest Web UI" style="width: 420px; height: auto;" />
       </a>
     </td>
-    <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px; text-align: center;">
-      <em>Vitest console</em><br/>
+    <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px;">
+      <div align="center">
+        <em>Vitest console</em><br/>
+      <div>
       <a href="./frontend/public/vitest-2.png">
         <img src="./frontend/public/vitest-2.png" alt="Vitest console" style="width: 420px; height: auto;" />
       </a>
@@ -58,8 +62,10 @@
 
 <table align="center" style="border-collapse: separate; border: 0px; border-spacing: 10px;">
   <tr>
-    <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px; text-align: center;">
-      <em>If validation fails, a toast message is displayed.</em><br/>
+    <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px;">
+      <div align="center">
+        <em>If validation fails, a toast message is displayed.</em><br/>
+      <div>
       <a href="./frontend/src/app/core/exception-handler/exception-handler.service.spec.ts">
         <img src="./frontend/public/ZOD.png" alt="Zod" style="height: auto;" />
       </a>
@@ -73,8 +79,10 @@
 
 <table align="center" style="border-collapse: separate; border: 0px; border-spacing: 10px; ">
   <tr>
-    <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px; text-align: center; min-width: 440px;">
-      <em>Scalar</em><br/>
+    <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px; min-width: 440px;">
+      <div align="center">
+        <em>Scalar</em><br/>
+      <div>
       <a href="./frontend/public/scalar.png">
         <img src="./frontend/public/scalar.png" alt="Scalar" style="width: 420px; height: auto;" />
       </a>
