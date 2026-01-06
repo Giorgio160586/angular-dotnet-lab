@@ -5,7 +5,7 @@ export interface ProductModel {
   name: string;
   category: string;
   price: number;
-  status: 'In Stock' | 'Low Stock' | 'Out of Stock';
+  status: 'In Stock' | 'Low Stock' | 'Out of Stock' | null ;
 }
 
 export const ProductSchema = z.object({

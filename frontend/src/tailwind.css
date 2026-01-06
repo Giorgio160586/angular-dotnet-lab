@@ -27,10 +27,6 @@ Live Server -> caricamento della pagina automatico
   .p-datatable .p-datatable-tbody > tr > td {
     @apply text-xs;
   }
-
-  .p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
-    @apply py-[0.5]! m-0!;
-  }
 }
 
 @layer components {

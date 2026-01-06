@@ -17,41 +17,53 @@
         />
     </p-iconfield>
     </div>
+
+
     <div class="flex flex-col gap-2">
+        <p-table
+            showGridlines [tableStyle]="{ 'min-width': '50rem' }"
+            [value]="products()"
+            [rows]="pageSize"
+            [totalRecords]="totalRecords()"
+            selectionMode="single"
+            [size]="'small'"
+            [scrollable]="true"
+            [virtualScroll]="true"
+            [virtualScrollItemSize]="40"
+            scrollHeight="400px"
+            [loading]="loading()"
+            [(selection)]="selectedProduct"
+            [lazy]="true"
+            (onLazyLoad)="onLazyLoad($event)"
+            
+        >
 
+                
+            <ng-template pTemplate="colgroup">
+                <col style="width: 80px" />   <!-- Id -->
+                <col style="width: 240px" />  <!-- Name -->
+                <col style="width: 180px" />  <!-- Category -->
+                <col style="width: 120px" />  <!-- Price -->
+    
+            </ng-template>
 
-    <p-table
-        [value]="products()"
-        [resizableColumns]="true"
-        [lazyLoadOnInit]="true"
-        [rows]="10"
-        [totalRecords]="totalRecords()"
-        selectionMode="single"
-        [size]="'small'"
-        [paginator]="true"
-        [scrollable]="false"
-        [virtualScroll]="false"
-        [virtualScrollItemSize]="46"
-        scrollHeight="400px"
-        [(selection)]="selectedProduct"
-        [loading]="loading"
-        [lazy]="true"
-        (onLazyLoad)="onLazyLoad($event)"
-    >
-        <ng-template #header>
-        <tr>
-            <th pSortableColumn="name">Name<p-sortIcon field="name" /></th>
-            <th pSortableColumn="category">Category<p-sortIcon field="category" /></th>
-            <th pSortableColumn="price">Price<p-sortIcon field="price" /> </th>
-            <th pSortableColumn="status">Status<p-sortIcon field="status" /></th>
-        </tr>
-        </ng-template>
-        <ng-template #body let-product>
-        <tr>
-            <td>{{ product.name }}</td>
-            <td>{{ product.category }}</td>
-            <td>{{ product.price }}</td>
-            <td>
+            <ng-template #header>
+            <tr>
+                <th pSortableColumn="id">Id<p-sortIcon field="id" /></th>
+                <th pSortableColumn="name">Name<p-sortIcon field="name" /></th>
+                <th pSortableColumn="category">Category<p-sortIcon field="category" /></th>
+                <th pSortableColumn="price">Price<p-sortIcon field="price" /> </th>
+                <th pSortableColumn="status">Status<p-sortIcon field="status" /></th>
+        
+            </tr>
+            </ng-template>
+            <ng-template #body let-product>
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.price }}</td>
+                            <td>
             <p-tag
                 [severity]="
                 product.status === 'In Stock'
@@ -64,8 +76,9 @@
                 {{ product.status }}
             </p-tag>
             </td>
-        </tr>
-        </ng-template>
-    </p-table>
+            </tr>
+            </ng-template>
+        </p-table>
+ 
     </div>
 </div>

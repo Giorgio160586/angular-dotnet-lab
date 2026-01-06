@@ -14,15 +14,15 @@ export class ProductsService {
     .set(USE_BASE_URL, true)
     .set(ADD_AUTHORIZATION, true);
 
-  public get(page: number, size: number, query?: string): Observable<[ProductModel[], number]> {
+  public get(first: number, size: number, query?: string): Observable<[ProductModel[], number]> {
     if (size === 0) return of<[ProductModel[], number]>([[], 0]);
     return this.httpClient
-      .get<ProductModel[]>(`/products?page=${page.toString()}&size=${size.toString()}`, { context: this.httpContext })
+      .get<ProductModel[]>(`/products?first=${first.toString()}&size=${size.toString()}`, { context: this.httpContext })
       .pipe(
         map((res: any) => {
           const items = z.array(ProductSchema).parse(res.item1 ?? []);
           const total = z.number().int().nonnegative().parse(res.item2 ?? 0);
-          console.log("[ProductsService] get", { page, size, res, items, total})
+          console.log("[ProductsService] get", { first, size, res, items, total})
           return [items, total] as [ProductModel[], number];
         }),
         catchError(error => {
