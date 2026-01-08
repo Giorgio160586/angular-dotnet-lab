@@ -28,12 +28,25 @@
   - **Tailwind CSS** – Utility-first CSS framework for responsive and customizable UI.
   
   - [PrimeNG - Angular UI Component Library](https://primeng.org/) The Next-Gen UI Suite for Angular. Enhance your web applications with PrimeNG's comprehensive suite of customizable, feature-rich UI components.
-  
+
+    <table align="center">
+    <tr>
+      <td>
+        <div align="center">
+          [Lazy-Loaded Virtual Scrolling](./frontend/src/app/features/products/products.component.ts) <em>Virtual scroll is implemented by creating an array that already matches the total number of records and filling it with placeholders. As the user scrolls, only the requested slice of data is loaded from the server and inserted into the correct positions. If that portion is already present, no request is made. This keeps the table lightweight while still showing a full scrollable dataset.</em><br/>
+        <div>
+        <a href="./frontend/public/virtual-scroll.png">
+          <img src="./frontend/public/virtual-scroll.png" alt="Virtual scroll" />
+        </a>
+      </td>
+    </tr>
+  </table>
+
   - [Vitest | Next Generation testing framework](https://vitest.dev/) – Vitest is the new default testing framework for Angular, designed to be fast, modern, and TypeScript-friendly. It leverages Vite for ultra-fast builds and offers a Jest-like API for familiarity.
 
-<table align="center" border="0">
+<table align="center">
   <tr>
-    <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px;">
+    <td>
       <div align="center">
         <em>Vitest Web UI</em><br/>
       <div>
@@ -41,7 +54,7 @@
         <img src="./frontend/public/vitest.png" alt="Vitest Web UI" style="width: 420px; height: auto;" />
       </a>
     </td>
-    <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px;">
+    <td>
       <div align="center">
         <em>Vitest console</em><br/>
       <div>
@@ -60,9 +73,9 @@
     - When the backend sends a response, you validate it against a Zod schema to ensure it matches the expected structure.
     - When sending data to the backend, you validate the payload before making the request.
 
-<table align="center" border="0">
+<table align="center">
   <tr>
-    <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px;">
+    <td>
       <div align="center">
         <em>If validation fails, a toast message is displayed.</em><br/>
       <div>
@@ -77,14 +90,14 @@
 #### Backend - WebApi C# ####
   - [Scalar](https://scalar.com/) – Scalar is a modern, open-source developer experience platform designed to streamline API documentation and testing, offering an intuitive interface, advanced features, and improved usability compared to traditional tools like Swagger, making it ideal for creating, exploring, and managing APIs efficiently.
 
-<table align="center" border="0">
+<table align="center">
   <tr>
-    <td style="background-color: rgba(0,0,0,0.10); border: 0px solid padding: 10px; min-width: 440px;">
+    <td>
       <div align="center">
         <em>Scalar</em><br/>
       <div>
       <a href="./frontend/public/scalar.png">
-        <img src="./frontend/public/scalar.png" alt="Scalar" style="width: 420px; height: auto;" />
+        <img src="./frontend/public/scalar.png" alt="Scalar" style="width: 520px; height: auto;" />
       </a>
     </td>
   </tr>
