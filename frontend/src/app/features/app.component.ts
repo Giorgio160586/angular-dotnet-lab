@@ -6,11 +6,12 @@ import { RecentActivityWidget } from "./recent-activity-widget/recentactivitywid
 import { AppFooter } from "../shared/app-footer/app.footer.component";
 import { ProductOverviewWidget } from './products/products.component';
 import { ToastModule } from 'primeng/toast';
+import { ConnectionStatusComponent } from "@core/connection-status/connection-status.components";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [AppTopbar, StatsWidget, SalesTrendWidget, RecentActivityWidget, ProductOverviewWidget, AppFooter, ToastModule],
+  imports: [AppTopbar, StatsWidget, SalesTrendWidget, RecentActivityWidget, ProductOverviewWidget, AppFooter, ToastModule, ConnectionStatusComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

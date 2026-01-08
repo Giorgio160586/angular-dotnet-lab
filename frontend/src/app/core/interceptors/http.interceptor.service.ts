@@ -1,5 +1,6 @@
 import { HttpContextToken, HttpErrorResponse, HttpInterceptorFn } from "@angular/common/http";
 import { inject } from "@angular/core";
+import { ConnectionStatusService } from "@core/connection-status/connection-status.service";
 import { MessageService, ToastMessageOptions } from "primeng/api";
 import { catchError, throwError } from "rxjs";
 
@@ -8,6 +9,7 @@ export const USE_BASE_URL = new HttpContextToken<boolean>(() => true);
 
 export const HttpInterceptorService: HttpInterceptorFn = (req, next) => {
   const messageService = inject(MessageService);
+  const connectionStatus = inject(ConnectionStatusService);
 
   const addAuth = req.context.get(ADD_AUTHORIZATION);
   const addBaseUrl = req.context.get(USE_BASE_URL);
@@ -21,14 +23,19 @@ export const HttpInterceptorService: HttpInterceptorFn = (req, next) => {
 
   return next(request).pipe(
     catchError((error: unknown) => {
+      console.error(error);
       if (error instanceof HttpErrorResponse) {
-        messageService.add({
-          severity: 'error',
-          summary: `Error ${error.status}`,
-          detail: error.message
-        } as ToastMessageOptions);
+        if (error.status === 0) {
+          connectionStatus.setDisconnected(error.message);
+        } else {
+          messageService.add({
+            severity: 'error',
+            summary: `Error ${error.status}`,
+            detail: error.message
+          } as ToastMessageOptions);
 
-        console.error('[HttpInterceptorService]', { error });
+          console.error('[HttpInterceptorService]', { error });
+        }
       }
       return throwError(() => error);
     })

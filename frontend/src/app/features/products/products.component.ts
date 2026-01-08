@@ -58,31 +58,22 @@ export class ProductOverviewWidget {
     if (event.rows === 0) return;
     const first = (event.first ?? 0);
 
- 
+    const canSkipFetch =
+      this.totalRecords() > 0 &&
+      this.products().slice(first, first + this.pageSize).every(item => item !== undefined);
 
-    
-const canSkipFetch =
-    this.totalRecords() > 0 &&
-    this.products().length === this.totalRecords() &&
-    this.products()
-      .slice(first, first + this.pageSize)
-      .every(item => item !== undefined);
+    if (canSkipFetch) {
+      console.log("[ProductOverviewWidget] skip fetch", { first, pageSize: this.pageSize });
+      return;
+    }
 
-  if (canSkipFetch) {
-    // Niente fetch: abbiamo già i dati per questo range.
-    console.log("[ProductOverviewWidget] skip fetch (range già in cache)", { first, pageSize: this.pageSize });
-    return;
-  }
-
-
-     this.loading.set(true);
+    this.loading.set(true);
 
     this.productsService.get(first, this.pageSize).subscribe({
       next: (data: any) => {
         const pageItems = data[0] as ProductModel[];
         const total = data[1] as number;
         
-
         this.totalRecords.set(total);
 
         if (this.totalRecords() !== this.products().length) {
