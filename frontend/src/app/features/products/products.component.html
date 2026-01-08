@@ -29,16 +29,14 @@
             [size]="'small'"
             [scrollable]="true"
             [virtualScroll]="true"
-            [virtualScrollItemSize]="40"
-            scrollHeight="400px"
+            [virtualScrollItemSize]="30"
+            scrollHeight="397px"
             [loading]="loading()"
             [(selection)]="selectedProduct"
             [lazy]="true"
             (onLazyLoad)="onLazyLoad($event)"
             
         >
-
-                
             <ng-template pTemplate="colgroup">
                 <col style="width: 80px" />   <!-- Id -->
                 <col style="width: 240px" />  <!-- Name -->
@@ -63,19 +61,19 @@
                 <td>{{ product.name }}</td>
                 <td>{{ product.category }}</td>
                 <td>{{ product.price }}</td>
-                            <td>
-            <p-tag
-                [severity]="
-                product.status === 'In Stock'
-                    ? 'success'
-                    : product.status === 'Low Stock'
-                    ? 'warn'
-                    : 'danger'
-                "
-            >
-                {{ product.status }}
-            </p-tag>
-            </td>
+                <td>
+                    <p-tag
+                        [severity]="
+                        product.status === 'In Stock'
+                            ? 'success'
+                            : product.status === 'Low Stock'
+                            ? 'warn'
+                            : 'danger'
+                        "
+                    >
+                        {{ product.status }}
+                    </p-tag>
+                </td>
             </tr>
             </ng-template>
         </p-table>

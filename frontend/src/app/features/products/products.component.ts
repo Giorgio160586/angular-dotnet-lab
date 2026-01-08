@@ -20,7 +20,7 @@ import { ProductsService } from './products.service';
   templateUrl: './products.component.html'
 })
 export class ProductOverviewWidget {
-  protected pageSize: number = 14;
+  protected pageSize: number = 100;
   private readonly productsService = inject(ProductsService);
 
   protected selectedProduct?: ProductModel;
@@ -55,31 +55,29 @@ export class ProductOverviewWidget {
   }
 
   private loadProducts(event: TableLazyLoadEvent): void {
-    if (event.rows === 0) return;
 
-    const size = this.pageSize + (this.pageSize * 2);
-    const first = Math.max((event.first ?? 0) - this.pageSize, 0);
+    if (event.rows === 0) return;
+    const first = (event.first ?? 0);
 
     this.loading.set(true);
 
-    this.productsService.get(first, size).subscribe({
+    this.productsService.get(first, this.pageSize).subscribe({
       next: (data: any) => {
         const pageItems = data[0] as ProductModel[];
         const total = data[1] as number;
 
         this.totalRecords.set(total);
 
-        // if (this.totalRecords() !== this.products().length) {
-          const products: ProductModel[] = Array.from({ length: total }, () => ({ id: 0 } as ProductModel));
-          this.products.set(products);
-        // }
+        if (this.totalRecords() !== this.products().length) {
+          this.products.set(Array.from({ length: total }));
+        }
 
         const current = this.products().slice();
         current.splice(first, pageItems.length, ...pageItems);
         this.products.set(current);
         this.loading.set(false);
 
-        console.log("[ProductOverviewWidget] loadProducts", { first, off: event.first, size, event, loading: this.loading(), products: this.products(), data, totalRecords: this.totalRecords() });
+        console.log("[ProductOverviewWidget] loadProducts", { first, off: event.first, event, loading: this.loading(), products: this.products(), data, totalRecords: this.totalRecords() });
 
       },
       error: () => {

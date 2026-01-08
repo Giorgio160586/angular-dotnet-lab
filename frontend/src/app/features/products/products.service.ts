@@ -26,11 +26,11 @@ export class ProductsService {
           return [items, total] as [ProductModel[], number];
         }),
         catchError(error => {
+          console.error('[ProductsService] get', { error });
           const detail = error instanceof ZodError
             ? error.issues.map(i => i.message).join('\n')
             : error.message;
 
-          console.error('[ProductsService] get', { error });
           this.messageService.add({
             severity: 'error',
             summary: `Error ${error.name}`,

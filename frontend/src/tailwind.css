@@ -11,6 +11,14 @@ PostCSS Language Support
 Live Server -> caricamento della pagina automatico
 */
 
+
+/* OVERRIDE GLOBALI DELLE VARIABILI (base layer) */
+@layer base {
+  :root {
+    --p-datatable-body-cell-sm-padding: 0.1rem 0.5rem !important;
+  }
+}
+
 @layer components {
   .p-datatable-mask {
     @apply backdrop-blur-sm! bg-surface-0/20! dark:bg-surface-900/20!;
