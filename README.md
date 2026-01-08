@@ -29,12 +29,13 @@
   
   - [PrimeNG - Angular UI Component Library](https://primeng.org/) The Next-Gen UI Suite for Angular. Enhance your web applications with PrimeNG's comprehensive suite of customizable, feature-rich UI components.
 
+    [Lazy-Loaded Virtual Scrolling](./frontend/src/app/features/products/products.component.ts) 
+          
+    <em>Virtual scroll is implemented by creating an array that already matches the total number of records and filling it with placeholders. As the user scrolls, only the requested slice of data is loaded from the server and inserted into the correct positions. If that portion is already present, no request is made. This keeps the table lightweight while still showing a full scrollable dataset.
+    </em>
     <table align="center">
     <tr>
       <td>
-        <div align="center">
-          [Lazy-Loaded Virtual Scrolling](./frontend/src/app/features/products/products.component.ts) <em>Virtual scroll is implemented by creating an array that already matches the total number of records and filling it with placeholders. As the user scrolls, only the requested slice of data is loaded from the server and inserted into the correct positions. If that portion is already present, no request is made. This keeps the table lightweight while still showing a full scrollable dataset.</em><br/>
-        <div>
         <a href="./frontend/public/virtual-scroll.png">
           <img src="./frontend/public/virtual-scroll.png" alt="Virtual scroll" />
         </a>
