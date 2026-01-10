@@ -1,38 +1,30 @@
 ﻿using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 using System.Text;
 using WebApi.Features.Users;
 
 namespace WebApi.Core.Providers;
 
-internal sealed class TokenProvider(IConfiguration configuration)
+internal sealed class TokenProvider(IConfiguration config)
 {
     public string Create(UserModel user)
     {
-        var secretKey = configuration["Jwt:Secret"];
-  
-        if (string.IsNullOrEmpty(secretKey))
-            throw new InvalidOperationException("JWT secret key is not configured.");
-
-        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
-
-        var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-        var tokenDescription = new SecurityTokenDescriptor
-        {
-            Subject = new System.Security.Claims.ClaimsIdentity(new[]
-            {
-                new System.Security.Claims.Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-                 new System.Security.Claims.Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
-            }),
-            Expires = DateTime.UtcNow.AddHours(configuration.GetValue<int>("Jwt:Expiration")),
-            SigningCredentials = credentials,
-        };
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Secret"]!));
+        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var handler = new JsonWebTokenHandler();
-
-        var token = handler.CreateToken(tokenDescription);
-
-        return token;
+        return handler.CreateToken(new SecurityTokenDescriptor
+        {
+            Issuer = config["Jwt:Issuer"],
+            Audience = config["Jwt:Audience"],
+            Expires = DateTime.UtcNow.AddHours(2),
+            SigningCredentials = creds,
+            Subject = new ClaimsIdentity(new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            })
+        });
     }
 }

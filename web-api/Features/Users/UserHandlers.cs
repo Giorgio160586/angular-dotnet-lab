@@ -3,12 +3,12 @@
 namespace WebApi.Features.Users;
 internal sealed class UserHandlers(TokenProvider tokenProvider)
 {
-    public async Task<string> Login(UserModel request)
+    public async Task<IResult> Login(UserModel request)
     {
-        if (String.IsNullOrEmpty(request.UserName))
-            throw new UnauthorizedAccessException("Invalid username.");
+        if (request.Password.Length <= 3)
+            throw new UnauthorizedAccessException("Invalid password.");
 
         string token = tokenProvider.Create(request);
-        return token;
+        return Results.Ok(new { token });
     }
 }
