@@ -1,5 +1,6 @@
 import { HttpContextToken, HttpErrorResponse, HttpInterceptorFn } from "@angular/common/http";
 import { inject } from "@angular/core";
+import { Router } from "@angular/router";
 import { ConnectionStatusService } from "@core/connection-status/connection-status.service";
 import { MessageService, ToastMessageOptions } from "primeng/api";
 import { catchError, throwError } from "rxjs";
@@ -10,6 +11,7 @@ export const USE_BASE_URL = new HttpContextToken<boolean>(() => true);
 export const HttpInterceptorService: HttpInterceptorFn = (req, next) => {
   const messageService = inject(MessageService);
   const connectionStatus = inject(ConnectionStatusService);
+  const router = inject(Router);
 
   const addAuth = req.context.get(ADD_AUTHORIZATION);
   const addBaseUrl = req.context.get(USE_BASE_URL);
@@ -27,6 +29,9 @@ export const HttpInterceptorService: HttpInterceptorFn = (req, next) => {
       if (error instanceof HttpErrorResponse) {
         if (error.status === 0) {
           connectionStatus.setDisconnected(error.message);
+        }
+        else if (error.status === 401){
+             router.navigate(['/login']);
         } else {
           messageService.add({
             severity: 'error',

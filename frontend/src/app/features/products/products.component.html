@@ -21,6 +21,7 @@
 
     <div class="flex flex-col gap-2">
         <p-table
+            #table
             showGridlines [tableStyle]="{ 'min-width': '50rem' }"
             [value]="products()"
             [rows]="pageSize"
@@ -34,6 +35,7 @@
             [loading]="loading()"
             [(selection)]="selectedProduct"
             [lazy]="true"
+            [size]="'small'"
             (onLazyLoad)="onLazyLoad($event)"
             
         >
@@ -48,7 +50,33 @@
             <ng-template #header>
             <tr>
                 <th pSortableColumn="id">Id<p-sortIcon field="id" /></th>
-                <th pSortableColumn="name">Name<p-sortIcon field="name" /></th>
+               
+<th pSortableColumn="name">
+  Name
+  <p-columnFilter
+    field="name"
+    type="text"
+    matchMode="contains"
+    display="menu"
+    [showOperator]="false"
+    [showMatchModes]="false"
+    [showAddButton]="false"
+    [showClearButton]="true"
+    [showApplyButton]="true"
+  >
+    <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+      <input
+        pInputText
+        [ngModel]="value"
+        (ngModelChange)="filter($event)"
+        [placeholder]="'Type to filter…'"
+      />
+    </ng-template>
+  </p-columnFilter>
+
+  <p-sortIcon field="name" />
+</th>
+
                 <th pSortableColumn="category">Category<p-sortIcon field="category" /></th>
                 <th pSortableColumn="price">Price<p-sortIcon field="price" /> </th>
                 <th pSortableColumn="status">Status<p-sortIcon field="status" /></th>

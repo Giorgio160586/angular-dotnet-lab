@@ -1,25 +1,29 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, OnInit, signal, ViewChild } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
-import { TableLazyLoadEvent, TableModule, TablePageEvent } from 'primeng/table';
+import { Table, TableLazyLoadEvent, TableModule, TablePageEvent } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { RatingModule } from 'primeng/rating';
 import { ProductModel } from './product.model';
 import { ProductsService } from './products.service';
+import { URLStorage } from 'src/app/shared/table/url-storage';
 
 @Component({
   selector: 'product-overview-widget',
   standalone: true,
   imports: [
-    CommonModule, ButtonModule, IconFieldModule, InputIconModule, InputTextModule, FormsModule, TableModule, TagModule, RatingModule
+    CommonModule, ButtonModule, IconFieldModule, InputIconModule, InputTextModule, 
+    FormsModule, TableModule, TagModule, RatingModule
   ],
   templateUrl: './products.component.html'
 })
 export class ProductOverviewWidget {
+  @ViewChild('table') table!: Table;
+
   protected pageSize: number = 100;
   private readonly productsService = inject(ProductsService);
 
@@ -41,6 +45,14 @@ export class ProductOverviewWidget {
   //     (p.status ?? '').toLowerCase().includes(q)
   //   );
   // });
+
+
+  
+  ngAfterViewInit() {
+    const storageCustom = new URLStorage('prime.store');
+    (this.table as Table).getStorage = () => storageCustom;
+    this.table.stateKey = this.table.stateKey ?? 'tableState';
+  }
 
   ngOnInit() {
     this.loadProducts({ first: 0, rows: this.pageSize } as TableLazyLoadEvent);

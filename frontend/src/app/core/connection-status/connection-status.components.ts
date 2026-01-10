@@ -63,8 +63,8 @@ export class ConnectionStatusComponent {
         this.svc.clear();
     }
 
-    @HostListener('document:keydown.escape')
-    onEsc() {
-        this.close();
-    }
+    // @HostListener('document:keydown.escape')
+    // onEsc() {
+    //     this.close();
+    // }
 }

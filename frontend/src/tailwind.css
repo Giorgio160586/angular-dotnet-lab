@@ -16,10 +16,55 @@ Live Server -> caricamento della pagina automatico
 @layer base {
   :root {
     --p-datatable-body-cell-sm-padding: 0.1rem 0.5rem !important;
+    --p-datatable-header-cell-sm-padding: 0.1rem 0.5rem !important;
   }
+
+
+  
+.p-inputtext,
+  .p-inputtextarea,
+  .p-dropdown,
+  .p-multiselect,
+  .p-autocomplete,
+  .p-calendar,
+  .p-inputnumber,
+  .p-selectbutton,
+  .p-chips,
+  .p-textarea,
+  .p-listbox,
+  .p-tree,
+  .p-treeSelect,
+  .p-checkbox,
+  .p-radiobutton,
+  .p-togglebutton {
+    @apply text-xs!;
+  }
+
 }
 
 @layer components {
+  /* SOLO icone nell'header della p-table (sort + filter) */
+  .p-datatable .p-datatable-thead .p-icon {
+    font-size: 0.75rem !important; /* ~ text-xs */
+  }
+
+  /* Facoltativo: spaziatura più compatta nei pulsanti filtro dell'header */
+  .p-datatable .p-datatable-thead .p-column-filter-menu-button,
+  .p-datatable .p-datatable-thead .p-column-filter-clear-button {
+    padding: 0.125rem 0.25rem; /* 2px 4px */
+  }
+
+  /* (Specifico) Sort icon nell'header */
+  .p-datatable .p-datatable-thead .p-sortable-column .p-sortable-column-icon .p-icon {
+    font-size: 0.75rem !important;
+  }
+
+  /* (Specifico) Icone dei bottoni filtro nell'header */
+  .p-datatable .p-datatable-thead .p-column-filter-menu-button .p-icon,
+  .p-datatable .p-datatable-thead .p-column-filter-clear-button .p-icon {
+    font-size: 0.75rem !important;
+  }
+
   .p-datatable-mask {
     @apply backdrop-blur-sm! bg-surface-0/20! dark:bg-surface-900/20!;
   }

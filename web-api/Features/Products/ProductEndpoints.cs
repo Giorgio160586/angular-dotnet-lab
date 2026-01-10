@@ -14,8 +14,8 @@ public static class ProductEndpoints
             var (items, total) = await handler.GetPagedAsync(first, size);
             return Results.Ok(new { item1 = items, item2 = total });
         })
-        .WithTags(Tag);
-        //.RequireAuthorization();
+        .WithTags(Tag)
+        .RequireAuthorization();
 
         app.MapPost("/product/insert", (ProductModel model) => { return "OK"; })
             .WithTags(Tag)

@@ -25,23 +25,21 @@
 ### Architecture ###
 
 #### Frontend - Angular ####
-  - **Tailwind CSS** – Utility-first CSS framework for responsive and customizable UI.
-  
   - [PrimeNG - Angular UI Component Library](https://primeng.org/) The Next-Gen UI Suite for Angular. Enhance your web applications with PrimeNG's comprehensive suite of customizable, feature-rich UI components.
 
-    [Lazy-Loaded Virtual Scrolling](./frontend/src/app/features/products/products.component.ts) 
+      [Lazy-Loaded Virtual Scrolling](./frontend/src/app/features/products/products.component.ts) 
           
-    <em>Virtual scroll is implemented by creating an array that already matches the total number of records and filling it with placeholders. As the user scrolls, only the requested slice of data is loaded from the server and inserted into the correct positions. If that portion is already present, no request is made. This keeps the table lightweight while still showing a full scrollable dataset.
-    </em>
-    <table align="center">
-    <tr>
-      <td>
-        <a href="./frontend/public/virtual-scroll.png">
-          <img src="./frontend/public/virtual-scroll.png" alt="Virtual scroll" />
-        </a>
-      </td>
-    </tr>
-  </table>
+      <em>Virtual scroll is implemented by creating an array that already matches the total number of records and filling it with placeholders. As the user scrolls, only the requested slice of data is loaded from the server and inserted into the correct positions. If that portion is already present, no request is made. This keeps the table lightweight while still showing a full scrollable dataset.
+      </em>
+      <table align="center">
+      <tr>
+        <td>
+          <a href="./frontend/public/virtual-scroll.png">
+            <img src="./frontend/public/virtual-scroll.png" alt="Virtual scroll" />
+          </a>
+        </td>
+      </tr>
+    </table>
 
   - [Vitest | Next Generation testing framework](https://vitest.dev/) – Vitest is the new default testing framework for Angular, designed to be fast, modern, and TypeScript-friendly. It leverages Vite for ultra-fast builds and offers a Jest-like API for familiarity.
 
