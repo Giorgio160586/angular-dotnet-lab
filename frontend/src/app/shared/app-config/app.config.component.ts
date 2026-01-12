@@ -1,5 +1,5 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, computed, inject, Input, PLATFORM_ID } from '@angular/core';
+import { Component, computed, inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { $t, updatePreset, updateSurfacePalette } from '@primeuix/themes';
 import Aura from '@primeuix/themes/aura';
@@ -54,7 +54,7 @@ declare type SurfacesType = {
   ],
   templateUrl: './app.config.component.html'
 })
-export class AppConfig {
+export class AppConfig implements OnInit {
   @Input() simple: boolean = false;
 
   router = inject(Router);
@@ -69,13 +69,13 @@ export class AppConfig {
 
   presets = Object.keys(presets);
 
-  ngOnInit() {
+  public ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.onPresetChange(this.layoutService.appState().preset);
     }
   }
 
-  surfaces: SurfacesType[] = [
+  public surfaces: SurfacesType[] = [
     {
       name: 'slate',
       palette: {
@@ -214,17 +214,17 @@ export class AppConfig {
     },
   ];
 
-  selectedPrimaryColor = computed(() => {
+  public selectedPrimaryColor = computed(() => {
     return this.layoutService.appState().primary;
   });
 
-  selectedPreset = computed(() => this.layoutService.appState().preset);
+  public selectedPreset = computed(() => this.layoutService.appState().preset);
 
-  isDarkMode = computed(() => this.layoutService.appState().darkMode);
+  public isDarkMode = computed(() => this.layoutService.appState().darkMode);
 
-  selectedSurface = computed(() => this.layoutService.appState().surface);
+  public selectedSurface = computed(() => this.layoutService.appState().surface);
 
-  primaryColors = computed<SurfacesType[]>(() => {
+  public primaryColors = computed<SurfacesType[]>(() => {
     const presetPalette =
       presets[this.layoutService.appState().preset as KeyOfType<typeof presets>]
         .primitive;
@@ -260,7 +260,7 @@ export class AppConfig {
     return palettes;
   });
 
-  getPresetExt() {
+  public getPresetExt() {
     const color: SurfacesType =
       this.primaryColors().find(
         (c) => c.name === this.selectedPrimaryColor()
@@ -355,7 +355,7 @@ export class AppConfig {
     }
   }
 
-  updateColors(event: any, type: string, color: any) {
+  public updateColors(event: any, type: string, color: any) {
     if (type === 'primary') {
       this.layoutService.appState.update((state: any) => ({
         ...state,
@@ -372,7 +372,7 @@ export class AppConfig {
     event.stopPropagation();
   }
 
-  applyTheme(type: string, color: any) {
+  public applyTheme(type: string, color: any) {
     if (type === 'primary') {
       updatePreset(this.getPresetExt());
     } else if (type === 'surface') {
@@ -380,7 +380,7 @@ export class AppConfig {
     }
   }
 
-  onPresetChange(event: any) {
+  public onPresetChange(event: any) {
     this.layoutService.appState.update((state: any) => ({
       ...state,
       preset: event,
@@ -396,11 +396,11 @@ export class AppConfig {
       .use({ useDefaultOptions: true });
   }
 
-  toggleDarkMode() {
+  public toggleDarkMode() {
     this.executeDarkModeToggle();
   }
 
-  executeDarkModeToggle() {
+  public executeDarkModeToggle() {
     this.layoutService.appState.update((state) => ({
       ...state,
       darkMode: !state.darkMode,

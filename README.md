@@ -66,6 +66,27 @@
 
   - [HttpInterceptor](frontend/src/app/core/interceptors/http.interceptor.service.ts) – Angular service that globally intercepts HTTP requests and responses to modify them (e.g., add headers, change URLs) or handle errors before they reach the app or server.
 
+<table align="center">
+  <tr>
+    <td>
+      <div align="center">
+        <em>Disconnected state</em><br/>
+      <div>
+      <a href="./frontend/public/disconnected-state.png">
+        <img src="./frontend/public/disconnected-state.png" alt="Disconnected state" style="width: 420px; height: auto;" />
+      </a>
+    </td>
+    <td>
+      <div align="center">
+        <em>JWT auth</em><br/>
+      <div>
+      <a href="./frontend/public/jwt-auth.png">
+        <img src="./frontend/public/jwt-auth.png" alt="JWT auth" style="width: 420px; height: auto;" />
+      </a>
+    </td>
+  </tr>
+</table>
+
   - [Zod](https://zod.dev/) - Zod is a TypeScript-first schema validation library. It   allows you to define schemas for your data and validate objects against those schemas at runtime.
     I used Zod to validate communication between the Backend and Frontend. This means:
 
@@ -80,6 +101,23 @@
       <div>
       <a href="./frontend/src/app/core/exception-handler/exception-handler.service.spec.ts">
         <img src="./frontend/public/ZOD.png" alt="Zod" style="height: auto;" />
+      </a>
+    </td>
+  </tr>
+</table>
+
+
+
+  - [ESLint](https://eslint.org/)  ESLint is used to keep the codebase clean and consistent by automatically detecting errors, enforcing code style, and applying Angular and TypeScript best practices during development.
+
+<table align="center">
+  <tr>
+    <td>
+      <div align="center">
+        <em>ESlint validation.</em><br/>
+      <div>
+      <a href="./frontend/public/eslint.png">
+        <img src="./frontend/public/eslint.png" alt="eslint" style="height: auto;" />
       </a>
     </td>
   </tr>
@@ -132,6 +170,7 @@
 ```bash
 npm i
 npm run vitest:ui
+npm run lint
 npm start
 ```
 ---

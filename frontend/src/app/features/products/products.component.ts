@@ -1,4 +1,4 @@
-import { Component, computed, inject, OnInit, signal, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, computed, inject, OnInit, signal, ViewChild } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -21,7 +21,7 @@ import { URLStorage } from 'src/app/shared/table/url-storage';
   ],
   templateUrl: './products.component.html'
 })
-export class ProductOverviewWidget {
+export class ProductOverviewWidget implements AfterViewInit, OnInit {
   @ViewChild('table') table!: Table;
 
   protected pageSize: number = 100;
@@ -48,13 +48,13 @@ export class ProductOverviewWidget {
 
 
   
-  ngAfterViewInit() {
+  public ngAfterViewInit() {
     const storageCustom = new URLStorage('prime.store');
     (this.table as Table).getStorage = () => storageCustom;
     this.table.stateKey = this.table.stateKey ?? 'tableState';
   }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.loadProducts({ first: 0, rows: this.pageSize } as TableLazyLoadEvent);
   }
 

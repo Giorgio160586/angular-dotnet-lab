@@ -16,7 +16,7 @@ export class AppTopbar {
 
   isDarkMode = computed(() => this.layoutService.appState().darkMode);
 
-  toggleDarkMode() {
+  protected toggleDarkMode() {
     this.layoutService.appState.update((state) => ({
       ...state,
       darkMode: !state.darkMode,

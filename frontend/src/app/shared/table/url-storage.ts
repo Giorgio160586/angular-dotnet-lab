@@ -8,7 +8,7 @@ export class URLStorage implements Storage {
     return Array.from(url.searchParams.keys()).filter(k => k.startsWith(`${this.paramKeyPrefix}.`)).length;
   }
 
-  clear(): void {
+  public clear(): void {
     const url = new URL(window.location.href);
     Array.from(url.searchParams.keys())
       .filter(k => k.startsWith(`${this.paramKeyPrefix}.`))
@@ -16,25 +16,25 @@ export class URLStorage implements Storage {
     window.history.replaceState({}, '', url.toString());
   }
 
-  getItem(key: string): string | null {
+  public getItem(key: string): string | null {
     const url = new URL(window.location.href);
     return url.searchParams.get(`${this.paramKeyPrefix}.${key}`);
   }
 
-  key(index: number): string | null {
+  public key(index: number): string | null {
     const url = new URL(window.location.href);
     const keys = Array.from(url.searchParams.keys()).filter(k => k.startsWith(`${this.paramKeyPrefix}.`));
     const name = keys[index];
     return name ? name.replace(`${this.paramKeyPrefix}.`, '') : null;
   }
 
-  removeItem(key: string): void {
+  public removeItem(key: string): void {
     const url = new URL(window.location.href);
     url.searchParams.delete(`${this.paramKeyPrefix}.${key}`);
     window.history.replaceState({}, '', url.toString());
   }
 
-  setItem(key: string, value: string): void {
+  public setItem(key: string, value: string): void {
     console.log("[URLStorage] setItem", {key,value})
     const url = new URL(window.location.href);
     url.searchParams.set(`${this.paramKeyPrefix}.${key}`, value);

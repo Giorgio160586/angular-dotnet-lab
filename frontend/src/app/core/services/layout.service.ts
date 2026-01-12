@@ -70,7 +70,7 @@ export class LayoutService {
       .catch(() => {});
   }
 
-  toggleDarkMode(appState?: AppState): void {
+  public toggleDarkMode(appState?: AppState): void {
     const _appState = appState || this.appState();
     if (_appState.darkMode) {
       document.documentElement.classList.add('p-dark');
@@ -86,7 +86,7 @@ export class LayoutService {
     });
   }
 
-  onAppStateUpdate() {
+  public onAppStateUpdate() {
     this._appState = { ...this.appState() };
     this.appStateUpdate.next(this.appState());
     this.toggleDarkMode();

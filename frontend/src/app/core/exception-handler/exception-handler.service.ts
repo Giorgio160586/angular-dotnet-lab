@@ -6,7 +6,7 @@ import { MessageService, ToastMessageOptions } from 'primeng/api';
 export class ExceptionHandlerService implements ErrorHandler {
   public readonly messageService = inject(MessageService);
 
-  handleError(error: unknown): void {
+  public handleError(error: unknown): void {
     // HTTP error
     if (error instanceof HttpErrorResponse) return;
 

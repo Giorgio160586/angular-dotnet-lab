@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ChartModule } from 'primeng/chart';
 import { CommonModule } from '@angular/common';
 import { debounceTime, Subscription } from 'rxjs';
@@ -21,7 +21,7 @@ import { LayoutService } from '../../core/services/layout.service';
     </div>
   `,
 })
-export class SalesTrendWidget {
+export class SalesTrendWidget implements OnInit, OnDestroy {
     layoutService = inject(LayoutService);
 
     subscription!: Subscription;
@@ -32,7 +32,7 @@ export class SalesTrendWidget {
 
     selectedRevenueMonth: any = { name: 'January - July 2021', code: '0' };
 
-    revenueMonth: any = [
+    public revenueMonth: any = [
         { name: 'January - July 2021', code: '0' },
         { name: 'August - December 2020', code: '1' }
     ];
@@ -43,11 +43,11 @@ export class SalesTrendWidget {
         });
     }
 
-    ngOnInit(){
+    public ngOnInit(){
         this.initChart();
     }
 
-    initChart() {
+    public initChart() {
         const documentStyle = getComputedStyle(document.documentElement);
         const textColor = documentStyle.getPropertyValue('--text-color');
 
@@ -110,7 +110,7 @@ export class SalesTrendWidget {
         };
     }
 
-    changeRevenueChart(event: any) {
+    public changeRevenueChart(event: any) {
         const dataSet1 = [
             [37, 34, 21, 27, 10, 18, 15],
             [31, 27, 30, 37, 23, 29, 20],
@@ -137,7 +137,7 @@ export class SalesTrendWidget {
         }
     }
 
-    ngOnDestroy() {
+    public ngOnDestroy() {
         this.subscription.unsubscribe();
     }
 }

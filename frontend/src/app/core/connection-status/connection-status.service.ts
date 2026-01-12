@@ -10,25 +10,25 @@ export class ConnectionStatusService {
     state: ConnectionState.Connected
   });
 
-  uiObserver = this.state$.asObservable();
+  public uiObserver = this.state$.asObservable();
 
-  set(event: ConnectionUiEvent) {
+  public set(event: ConnectionUiEvent) {
     this.state$.next(event);
   }
 
-  setConnected(message?: string) {
+  public setConnected(message?: string) {
     this.set({ state: ConnectionState.Connected, message });
   }
 
-  setConnecting(message?: string) {
+  public setConnecting(message?: string) {
     this.set({ state: ConnectionState.Connecting, message });
   }
 
-  setDisconnected(message?: string) {
+  public setDisconnected(message?: string) {
     this.set({ state: ConnectionState.Disconnected, message });
   }
 
-  clear() {
+  public clear() {
     this.setConnected();
   }
 }

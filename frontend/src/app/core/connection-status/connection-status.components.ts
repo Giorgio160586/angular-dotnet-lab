@@ -27,7 +27,7 @@ import { ConnectionState, ConnectionUiEvent } from './connection-status.interfac
 })
 export class ConnectionStatusComponent {
 
-    private svc = inject(ConnectionStatusService);
+    private readonly connectionStatus = inject(ConnectionStatusService);
     private parent = inject(CONNECTION_STATUS_INSTANCE, { optional: true, skipSelf: true });
 
     isRoot = computed(() => !this.parent);
@@ -37,7 +37,7 @@ export class ConnectionStatusComponent {
     });
 
     constructor() {
-        this.svc.uiObserver.subscribe(ev => this._state.set(ev));
+        this.connectionStatus.uiObserver.subscribe(ev => this._state.set(ev));
     }
 
     visible = computed(() => this._state().state !== ConnectionState.Connected);
@@ -60,7 +60,7 @@ export class ConnectionStatusComponent {
     });
 
     close() {
-        this.svc.clear();
+        this.connectionStatus.clear();
     }
 
     // @HostListener('document:keydown.escape')
