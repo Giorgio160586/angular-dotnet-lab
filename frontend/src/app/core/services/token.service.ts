@@ -8,7 +8,7 @@ export class TokenService {
   private readonly _token = signal<string | null>(null);
 
   get token(): string | null {
-    return localStorage.getItem(STORAGE_KEY);
+    return this._token();
   }
 
   public setToken(token: string | null) {
