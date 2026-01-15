@@ -22,9 +22,7 @@
 
 ---
 
-### Architecture ###
-
-#### Frontend ####
+### Frontend ###
   - [PrimeNG - Angular UI Component Library](https://primeng.org/) The Next-Gen UI Suite for Angular. Enhance your web applications with PrimeNG's comprehensive suite of customizable, feature-rich UI components.
 
       [Lazy-Loaded Virtual Scrolling](./frontend/src/app/features/products/products.component.ts) 
@@ -124,7 +122,7 @@
 </table>
 
 ---
-#### Backend ####
+### Backend ###
   - [Scalar](https://scalar.com/) – Scalar is a modern, open-source developer experience platform designed to streamline API documentation and testing, offering an intuitive interface, advanced features, and improved usability compared to traditional tools like Swagger, making it ideal for creating, exploring, and managing APIs efficiently.
 
 <table align="center">

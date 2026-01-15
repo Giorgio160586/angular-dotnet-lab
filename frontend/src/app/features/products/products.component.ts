@@ -24,18 +24,18 @@ import { URLStorage } from 'src/app/shared/table/url-storage';
 export class ProductOverviewWidget implements AfterViewInit, OnInit {
   @ViewChild('table') table!: Table;
 
-  protected pageSize: number = 100;
+  public pageSize: number = 100;
   private readonly productsService = inject(ProductsService);
 
-  protected selectedProduct?: ProductModel;
+  public selectedProduct?: ProductModel;
   public totalRecords = signal<number>(0);
   public products = signal<ProductModel[]>([]);
 
-  protected readonly searchQuery = signal<string>('');
-  protected loading = signal<boolean>(false);
+  public readonly searchQuery = signal<string>('');
+  public loading = signal<boolean>(false);
 
   // Computed per filtraggio
-  // protected readonly filteredProducts = computed<ProductModel[]>(() => {
+  // public readonly filteredProducts = computed<ProductModel[]>(() => {
   //   const list = this.products();
   //   const q = this.searchQuery().trim().toLowerCase();
   //   if (!q) return list;
@@ -58,11 +58,11 @@ export class ProductOverviewWidget implements AfterViewInit, OnInit {
     this.loadProducts({ first: 0, rows: this.pageSize } as TableLazyLoadEvent);
   }
 
-  protected searchProducts(): void {
+  public searchProducts(): void {
     // this.loadProducts();
   }
 
-  protected onLazyLoad(event: TableLazyLoadEvent): void {
+  public onLazyLoad(event: TableLazyLoadEvent): void {
     this.loadProducts(event);
   }
 
