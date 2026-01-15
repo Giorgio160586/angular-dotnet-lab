@@ -9,8 +9,8 @@
 
 <p align="center">
   <a href="#about">About</a> &nbsp;|&nbsp;
-  <a href="#architecture">Architecture</a> &nbsp;|&nbsp;
-  <a href="#technologies">Technologies</a> &nbsp;|&nbsp;
+  <a href="#frontend">Frontend</a> &nbsp;|&nbsp;
+  <a href="#backend">Backend</a> &nbsp;|&nbsp;
   <a href="#Starting">Starting</a>
 </p>
 
@@ -24,7 +24,7 @@
 
 ### Architecture ###
 
-#### Frontend - Angular ####
+#### Frontend ####
   - [PrimeNG - Angular UI Component Library](https://primeng.org/) The Next-Gen UI Suite for Angular. Enhance your web applications with PrimeNG's comprehensive suite of customizable, feature-rich UI components.
 
       [Lazy-Loaded Virtual Scrolling](./frontend/src/app/features/products/products.component.ts) 
@@ -108,7 +108,7 @@
 
 
 
-  - [ESLint](https://eslint.org/)  ESLint is used to keep the codebase clean and consistent by automatically detecting errors, enforcing code style, and applying Angular and TypeScript best practices during development.
+  - [ESLint](https://eslint.org/) - ESLint is used to keep the codebase clean and consistent by automatically detecting errors, enforcing code style, and applying Angular and TypeScript best practices during development.
 
 <table align="center">
   <tr>
@@ -124,7 +124,7 @@
 </table>
 
 ---
-#### Backend - WebApi C# ####
+#### Backend ####
   - [Scalar](https://scalar.com/) – Scalar is a modern, open-source developer experience platform designed to streamline API documentation and testing, offering an intuitive interface, advanced features, and improved usability compared to traditional tools like Swagger, making it ideal for creating, exploring, and managing APIs efficiently.
 
 <table align="center">
@@ -134,32 +134,11 @@
         <em>Scalar</em><br/>
       <div>
       <a href="./frontend/public/scalar.png">
-        <img src="./frontend/public/scalar.png" alt="Scalar" style="width: 520px; height: auto;" />
+        <img src="./frontend/public/scalar.png" alt="Scalar" style="height: auto;" />
       </a>
     </td>
   </tr>
 </table>
-
----
-
-### Technologies ###
-
-<a href="https://angular.dev">
-  <img width="50" title="Angular" alt="Angular Logo" src="./frontend/public/angular-icon.svg">
-</a> &nbsp;&nbsp;
-<a href="https://dotnet.microsoft.com">
-  <img width="50" title=".NET Core" alt=".NET Logo" src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Microsoft_.NET_logo.svg">
-</a> &nbsp;&nbsp;
-<a href="https://tailwindcss.com">
-  <img width="50" title="Tailwind CSS" alt="Tailwind Logo" src="https://raw.githubusercontent.com/github/explore/main/topics/tailwind/tailwind.png">
-</a> &nbsp;&nbsp;
-<a href="https://vitest.dev">
-  <img width="50" title="Vitest" alt="Vitest Logo" src="https://vitest.dev/logo.svg">
-</a>
-<a href="https://primeng.org">
-  <img width="50" title="Vitest" alt="Vitest Logo" src="./frontend/public/primeng-original.svg">
-</a>
-
 
 ---
 
