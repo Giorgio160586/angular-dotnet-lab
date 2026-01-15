@@ -84,6 +84,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("AllowAngular");
 
+app.MapStaticAssets().AllowAnonymous();
+
 UserEndpoints.Map(app);
 ProductEndpoints.Map(app);
 
