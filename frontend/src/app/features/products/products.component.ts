@@ -10,7 +10,6 @@ import { TagModule } from 'primeng/tag';
 import { RatingModule } from 'primeng/rating';
 import { ProductModel } from './product.model';
 import { ProductsService } from './products.service';
-import { URLStorage } from 'src/app/shared/table/url-storage';
 
 @Component({
   selector: 'product-overview-widget',
@@ -21,9 +20,7 @@ import { URLStorage } from 'src/app/shared/table/url-storage';
   ],
   templateUrl: './products.component.html'
 })
-export class ProductOverviewWidget implements AfterViewInit, OnInit {
-  @ViewChild('table') table!: Table;
-
+export class ProductOverviewWidget implements OnInit {
   public pageSize: number = 100;
   private readonly productsService = inject(ProductsService);
 
@@ -45,14 +42,6 @@ export class ProductOverviewWidget implements AfterViewInit, OnInit {
   //     (p.status ?? '').toLowerCase().includes(q)
   //   );
   // });
-
-
-  
-  public ngAfterViewInit() {
-    const storageCustom = new URLStorage('prime.store');
-    (this.table as Table).getStorage = () => storageCustom;
-    this.table.stateKey = this.table.stateKey ?? 'tableState';
-  }
 
   public ngOnInit() {
     this.loadProducts({ first: 0, rows: this.pageSize } as TableLazyLoadEvent);

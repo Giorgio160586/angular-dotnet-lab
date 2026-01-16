@@ -59,7 +59,7 @@ export class ConnectionStatusComponent {
         }
     });
 
-    close() {
+    public close() {
         this.connectionStatus.clear();
     }
 

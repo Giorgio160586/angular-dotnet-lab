@@ -41,6 +41,14 @@ module.exports = defineConfig([
         },
 
       ],
+      "no-restricted-syntax": [
+        "error",
+        {
+          selector: "Decorator[expression.callee.name='ViewChild']",
+          message:
+            "Avoid @ViewChild. Prefer directives or component APIs."
+        }
+      ],
       "@typescript-eslint/no-unused-vars": "off",
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-inferrable-types": "off",
