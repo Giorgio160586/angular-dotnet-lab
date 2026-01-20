@@ -1,109 +1,70 @@
-
 <div
-    class="bg-surface-0 dark:bg-surface-900 p-6 rounded-xl border border-surface-200 dark:border-surface-700 flex flex-col gap-4"
->
-    <div
-    class="flex sm:items-center justify-between mb-4 sm:flex-row flex-col gap-2"
-    >
-    <span class="font-medium text-base">Products Overview</span>
-    <p-iconfield class="sm:w-auto w-full">
-        <p-inputicon class="pi pi-search" />
-        <input
-        pInputText
-        [(ngModel)]="searchQuery"
-        placeholder="Search products..."
-        class="p-inputtext-sm md:w-auto! w-full!"
-        (ngModelChange)="searchProducts()"
-        />
-    </p-iconfield>
+    class="bg-surface-0 dark:bg-surface-900 p-6 rounded-xl border border-surface-200 dark:border-surface-700 flex flex-col gap-4">
+    <div class="flex sm:items-center justify-between mb-4 sm:flex-row flex-col gap-2">
+        <span class="font-medium text-base">Products Overview</span>
+        <p-iconfield class="sm:w-auto w-full">
+            <p-inputicon class="pi pi-search" />
+            <input pInputText [(ngModel)]="searchQuery" placeholder="Search products..."
+                class="p-inputtext-sm md:w-auto! w-full!" (ngModelChange)="searchProducts()" />
+        </p-iconfield>
     </div>
-
-
     <div class="flex flex-col gap-2">
-        <p-table
-            showGridlines [tableStyle]="{ 'min-width': '50rem' }"
-            [value]="products()"
-            [rows]="pageSize"
-            [totalRecords]="totalRecords()"
-            selectionMode="single"
-            [size]="'small'"
-            [scrollable]="true"
-            [virtualScroll]="true"
-            [virtualScrollItemSize]="30"
-            scrollHeight="397px"
-            [loading]="loading()"
-            [(selection)]="selectedProduct"
-            [lazy]="true"
-            [size]="'small'"
-            (onLazyLoad)="onLazyLoad($event)"
-            
-        >
-            <ng-template pTemplate="colgroup">
-                <col style="width: 80px" />   <!-- Id -->
-                <col style="width: 240px" />  <!-- Name -->
-                <col style="width: 180px" />  <!-- Category -->
-                <col style="width: 120px" />  <!-- Price -->
-    
-            </ng-template>
-
-            <ng-template #header>
-            <tr>
-                <th pSortableColumn="id">Id<p-sortIcon field="id" /></th>
-               
-<th pSortableColumn="name">
-  Name
-  <p-columnFilter
-    field="name"
-    type="text"
-    matchMode="contains"
-    display="menu"
-    [showOperator]="false"
-    [showMatchModes]="false"
-    [showAddButton]="false"
-    [showClearButton]="true"
-    [showApplyButton]="true"
-  >
-    <ng-template pTemplate="filter" let-value let-filter="filterCallback">
-      <input
-        pInputText
-        [ngModel]="value"
-        (ngModelChange)="filter($event)"
-        [placeholder]="'Type to filter…'"
-      />
-    </ng-template>
-  </p-columnFilter>
-
-  <p-sortIcon field="name" />
-</th>
-
-                <th pSortableColumn="category">Category<p-sortIcon field="category" /></th>
-                <th pSortableColumn="price">Price<p-sortIcon field="price" /> </th>
-                <th pSortableColumn="status">Status<p-sortIcon field="status" /></th>
-        
-            </tr>
-            </ng-template>
-            <ng-template #body let-product>
-            <tr>
-                <td>{{ product.id }}</td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.category }}</td>
-                <td>{{ product.price }}</td>
-                <td>
-                    <p-tag
-                        [severity]="
-                        product.status === 'In Stock'
-                            ? 'success'
-                            : product.status === 'Low Stock'
-                            ? 'warn'
-                            : 'danger'
-                        "
-                    >
-                        {{ product.status }}
-                    </p-tag>
-                </td>
-            </tr>
-            </ng-template>
-        </p-table>
- 
+            <p-table showGridlines
+                [tableStyle]="{ 'min-width': '50rem' }" 
+                [value]="products()" 
+                [rows]="pageSize"
+                [totalRecords]="totalRecords()" 
+                selectionMode="single" 
+                [size]="'small'"  
+                [virtualScroll]="true"
+                [scrollable]="true"
+                [resizableColumns]="true"
+                [virtualScrollItemSize]="30" 
+                scrollHeight="395px" 
+                [(selection)]="selectedProduct"
+                [loading]="loading()"
+                [lazy]="true" 
+                [size]="'small'"
+                (onLazyLoad)="onLazyLoad($event)">
+                <ng-template pTemplate="header">
+                    <tr style="height: 30px;">
+                        <th pResizableColumn pSortableColumn="id">Id<p-sortIcon field="id" /></th>
+                        <th pResizableColumn pSortableColumn="name">
+                            Name
+                            <!-- <p-columnFilter field="name" type="text" matchMode="contains" display="menu"
+                                [showOperator]="false" [showMatchModes]="false" [showAddButton]="false"
+                                [showClearButton]="true" [showApplyButton]="true">
+                                <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                                    <input pInputText [ngModel]="value" (ngModelChange)="filter($event)"
+                                        [placeholder]="'Type to filter…'" />
+                                </ng-template>
+                            </p-columnFilter> -->
+                            <p-sortIcon field="name" />
+                        </th>
+                        <th pResizableColumn pSortableColumn="category">Category<p-sortIcon field="category" /></th>
+                        <th pResizableColumn pSortableColumn="price">Price<p-sortIcon field="price" /> </th>
+                        <th pResizableColumn pSortableColumn="status">Status<p-sortIcon field="status" /></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>{{ product.id }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.category }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>
+                            <p-tag [severity]="
+                                product.status === 'In Stock'
+                                    ? 'success'
+                                    : product.status === 'Low Stock'
+                                    ? 'warn'
+                                    : 'danger'
+                                ">
+                                {{ product.status }}
+                            </p-tag>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
     </div>
 </div>

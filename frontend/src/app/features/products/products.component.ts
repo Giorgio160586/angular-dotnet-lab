@@ -10,7 +10,6 @@ import { TagModule } from 'primeng/tag';
 import { RatingModule } from 'primeng/rating';
 import { ProductModel } from './product.model';
 import { ProductsService } from './products.service';
-
 @Component({
   selector: 'product-overview-widget',
   standalone: true,
@@ -23,13 +22,11 @@ import { ProductsService } from './products.service';
 export class ProductOverviewWidget implements OnInit {
   public pageSize: number = 100;
   private readonly productsService = inject(ProductsService);
-
   public selectedProduct?: ProductModel;
   public totalRecords = signal<number>(0);
   public products = signal<ProductModel[]>([]);
-
-  public readonly searchQuery = signal<string>('');
   public loading = signal<boolean>(false);
+  public readonly searchQuery = signal<string>('');
 
   // Computed per filtraggio
   // public readonly filteredProducts = computed<ProductModel[]>(() => {
@@ -58,7 +55,6 @@ export class ProductOverviewWidget implements OnInit {
   private loadProducts(event: TableLazyLoadEvent): void {
     if (event.rows === 0) return;
     const first = (event.first ?? 0);
-
     const canSkipFetch =
       this.totalRecords() > 0 &&
       this.products().slice(first, first + this.pageSize).every(item => item !== undefined);
@@ -67,26 +63,20 @@ export class ProductOverviewWidget implements OnInit {
       console.log("[ProductOverviewWidget] skip fetch", { first, pageSize: this.pageSize });
       return;
     }
-
     this.loading.set(true);
-
     this.productsService.get(first, this.pageSize).subscribe({
       next: (data: any) => {
         const pageItems = data[0] as ProductModel[];
         const total = data[1] as number;
-        
         this.totalRecords.set(total);
-
         if (this.totalRecords() !== this.products().length) {
           this.products.set(Array.from({ length: total }));
         }
-
         const current = this.products().slice();
         current.splice(first, pageItems.length, ...pageItems);
         this.products.set(current);
         this.loading.set(false);
-
-        console.log("[ProductOverviewWidget] loadProducts", { first, off: event.first, event, loading: this.loading(), products: this.products(), data, totalRecords: this.totalRecords() });
+        console.log("[ProductOverviewWidget] loadProducts", { first, off: event.first, event, products: this.products(), data, totalRecords: this.totalRecords() });
 
       },
       error: () => {

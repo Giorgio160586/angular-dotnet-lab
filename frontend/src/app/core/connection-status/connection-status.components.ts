@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 
 import { ConnectionStatusService } from './connection-status.service';
 import { CONNECTION_STATUS_INSTANCE } from './connection-status.token';
-import { ConnectionState, ConnectionUiEvent } from './connection-status.interfaces';
+import { ConnectionState, ConnectionUiEvent } from './connection-status.model';
 
 @Component({
     selector: 'app-connection-status',

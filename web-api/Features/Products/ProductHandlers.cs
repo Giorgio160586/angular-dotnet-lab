@@ -83,7 +83,7 @@ namespace WebApi.Features.Products
             int size,
             CancellationToken cancellationToken = default)
         {
-            // Simula latenza di 5 secondi (rispetta il cancellationToken)
+            // Simula latenza di 2 secondi (rispetta il cancellationToken)
             await Task.Delay(TimeSpan.FromSeconds(2), cancellationToken);
 
             var total = Products.Count;

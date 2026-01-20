@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ConnectionUiEvent, ConnectionState } from './connection-status.interfaces';
+import { ConnectionUiEvent, ConnectionState } from './connection-status.model';
  
 
 @Injectable({ providedIn: 'root' })
